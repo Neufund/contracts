@@ -1,0 +1,26 @@
+sudo: true
+language: node_js
+node_js:
+  - "6"
+  - "6.1"
+compiler:
+  - gcc
+  - clang
+os:
+  - linux
+  - osx
+env:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8
+    - clang
+before_script:
+  - npm install -g truffle@2.1.1
+  - npm run testrpc > testrpc.log &
+after_script:
+  - cat testrpc.log
