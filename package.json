@@ -1,0 +1,25 @@
+{
+  "name": "neufund-contracts",
+  "version": "1.0.0",
+  "description": "Some basic smart contracts",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test",
+    "build": "truffle build",
+    "serve": "truffle serve",
+    "watch": "truffle watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Neufund/Contracts.git"
+  },
+  "author": "Leonid Logvinov <logvinov.leon@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Neufund/Contracts/issues"
+  },
+  "homepage": "https://github.com/Neufund/Contracts#readme"
+}
