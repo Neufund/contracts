@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/Neufund/Contracts#readme",
   "dependencies": {
-    "ethereumjs-testrpc": "^3.0.3"
+    "ethereumjs-testrpc": "^3.0.3",
+    "truffle-default-builder": "^2.0.0"
   }
 }

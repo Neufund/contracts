@@ -2,7 +2,6 @@ sudo: true
 language: node_js
 node_js:
   - "6"
-  - "6.1"
 compiler:
   - gcc
   - clang
@@ -20,7 +19,7 @@ addons:
     - g++-4.8
     - clang
 before_script:
-  - npm install -g truffle@2.1.1
+  - npm install -g truffle
   - npm run testrpc > testrpc.log &
 after_script:
   - cat testrpc.log
