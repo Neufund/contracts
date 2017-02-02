@@ -11,8 +11,7 @@
   ],
   "links": {},
   "sources": [
-    "./contracts/AbstractToken.sol",
-    "./contracts/StandardToken.sol"
+    "./contracts/NeufundTestToken.sol"
   ],
   "dependencies": {
     "standard-token": "1.0.0"
