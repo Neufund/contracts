@@ -18,7 +18,11 @@ addons:
     - g++-4.8
     - clang
 before_script:
-  - npm install -g truffle
+  - npm list -g truffle --depth=0 || npm install -g truffle
   - npm run testrpc > testrpc.log &
 after_script:
   - cat testrpc.log
+cache:
+  directories:
+    - node_modules
+    - $(npm config get prefix)/bin/truffle
