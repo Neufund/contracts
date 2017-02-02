@@ -28,8 +28,10 @@
     "truffle-default-builder": "^2.0.0"
   },
   "devDependencies": {
+    "babel-loader": "^6.2.10",
     "copy-webpack-plugin": "^4.0.1",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^2.0.0-rc.2",
+    "json-loader": "^0.5.4",
     "truffle-solidity-loader": "0.0.8",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^1.16.3"
