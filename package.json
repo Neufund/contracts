@@ -26,5 +26,10 @@
   "dependencies": {
     "ethereumjs-testrpc": "^3.0.3",
     "truffle-default-builder": "^2.0.0"
+  },
+  "devDependencies": {
+    "truffle-solidity-loader": "0.0.8",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^1.16.3"
   }
 }
