@@ -9,14 +9,16 @@ module.exports = function (deployer) {
      * uint etherCostOfEachToken,
      * Token addressOfTokenUsedAsReward
      */
-    NeufundTestToken.deployed().then((instance)=> {
+    deployer.then(()=> {
+        return NeufundTestToken.deployed();
+    }).then((instance)=> {
         console.log(instance.address);
         var ifSuccessfulSendTo = "0xb67fb67eb9e4700c90f2ab65c8ecbb3b687d49c7";
         var fundingGoalInEthers = 1;
         var durationInMinutes = 1;
         var etherCostOfEachToken = 1;
         var addressOfTokenUsedAsReward = instance.address;
-        deployer.deploy(Crowdsale,
+        return deployer.deploy(Crowdsale,
             ifSuccessfulSendTo,
             fundingGoalInEthers,
             durationInMinutes,
