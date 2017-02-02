@@ -1,7 +1,7 @@
 pragma solidity ^0.4.0;
 
 
-import "./AbstractToken.sol";
+import "./Token.sol";
 
 
 /// @title Standard token contract
