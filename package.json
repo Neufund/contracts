@@ -9,8 +9,8 @@
   "scripts": {
     "testrpc": "testrpc",
     "test": "truffle test",
-    "build": "truffle build",
-    "serve": "truffle serve",
+    "build": "webpack",
+    "dev": "webpack-dev-server --hot",
     "watch": "truffle watch"
   },
   "repository": {
