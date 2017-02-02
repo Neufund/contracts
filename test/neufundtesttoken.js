@@ -1,11 +1,13 @@
 var NeufundTestToken = artifacts.require("./NeufundTestToken.sol");
+var Web3 = require('web3');
+var web3 = new Web3();
 
 contract('NeufundTestToken', function(accounts) {
   it("should put 10000 NeufundTestToken in the first account", function() {
     return NeufundTestToken.deployed().then(function(instance) {
       return instance.balanceOf.call(accounts[0]);
     }).then(function(balance) {
-      assert.equal(balance.valueOf(), 10000, "10000 wasn't in the first account");
+      assert.equal(balance.valueOf(), Number(web3.toWei(10000, "ether")), "10000 wasn't in the first account");
     });
   });
   it("should send coin correctly", function() {
