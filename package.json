@@ -10,7 +10,7 @@
     "testrpc": "testrpc",
     "test": "truffle test",
     "build": "webpack",
-    "dev": "webpack-dev-server --hot",
+    "dev": "webpack-dev-server --hot --https --open",
     "watch": "truffle watch"
   },
   "repository": {
