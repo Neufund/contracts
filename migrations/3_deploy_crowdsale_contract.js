@@ -6,7 +6,7 @@ module.exports = function (deployer) {
      * address ifSuccessfulSendTo,
      * uint fundingGoalInEthers,
      * uint durationInMinutes,
-     * uint etherCostOfEachToken,
+     * uint weiCostOfEachToken,
      * Token addressOfTokenUsedAsReward
      */
     deployer.then(()=> {
