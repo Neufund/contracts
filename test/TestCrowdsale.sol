@@ -15,14 +15,14 @@ contract TestCrowdsale {
     address ifSuccessfulSendTo = 0x42;
     uint fundingGoalInEthers = 1;
     uint durationInMinutes = 1;
-    uint etherCostOfEachToken = 1;
+    uint weiCostOfEachToken = 1;
     Token addressOfTokenUsedAsReward = Token(0x00);
 
     Crowdsale crowdsale = new Crowdsale(
         ifSuccessfulSendTo,
         fundingGoalInEthers,
         durationInMinutes,
-        etherCostOfEachToken,
+        weiCostOfEachToken,
         addressOfTokenUsedAsReward
     );
 
@@ -30,7 +30,7 @@ contract TestCrowdsale {
     Assert.equal(crowdsale.fundingGoal(), fundingGoalInEthers * 1 ether, "fundingGoal");
     Assert.equal(crowdsale.amountRaised(), 0, "amountRaised");
     Assert.equal(crowdsale.deadline(), now + durationInMinutes * 1 minutes, "deadline");
-    Assert.equal(crowdsale.price(), etherCostOfEachToken * 1 ether, "price");
+    Assert.equal(crowdsale.price(), weiCostOfEachToken, "price");
     Assert.equal(crowdsale.tokenReward(), addressOfTokenUsedAsReward, "tokenReward");
   }
 }
