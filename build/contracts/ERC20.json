@@ -1,5 +1,5 @@
 {
-  "contract_name": "Token",
+  "contract_name": "ERC20",
   "abi": [
     {
       "constant": false,
@@ -16,7 +16,7 @@
       "name": "approve",
       "outputs": [
         {
-          "name": "success",
+          "name": "ok",
           "type": "bool"
         }
       ],
@@ -29,7 +29,7 @@
       "name": "totalSupply",
       "outputs": [
         {
-          "name": "supply",
+          "name": "",
           "type": "uint256"
         }
       ],
@@ -55,7 +55,7 @@
       "name": "transferFrom",
       "outputs": [
         {
-          "name": "success",
+          "name": "ok",
           "type": "bool"
         }
       ],
@@ -66,14 +66,14 @@
       "constant": true,
       "inputs": [
         {
-          "name": "owner",
+          "name": "who",
           "type": "address"
         }
       ],
       "name": "balanceOf",
       "outputs": [
         {
-          "name": "balance",
+          "name": "",
           "type": "uint256"
         }
       ],
@@ -95,7 +95,7 @@
       "name": "transfer",
       "outputs": [
         {
-          "name": "success",
+          "name": "ok",
           "type": "bool"
         }
       ],
@@ -117,7 +117,7 @@
       "name": "allowance",
       "outputs": [
         {
-          "name": "remaining",
+          "name": "",
           "type": "uint256"
         }
       ],
@@ -171,5 +171,5 @@
   ],
   "networks": {},
   "schema_version": "0.0.5",
-  "updated_at": 1486123187280
+  "updated_at": 1486331211805
 }

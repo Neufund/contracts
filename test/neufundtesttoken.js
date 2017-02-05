@@ -1,48 +1,53 @@
-var NeufundTestToken = artifacts.require("./NeufundTestToken.sol");
+var Promise = require("promise");
+var NeufundCrowdsaleToken = artifacts.require("./NeufundCrowdsaleToken.sol");
 var Web3 = require('web3');
-var web3 = new Web3();
+var TestRPC = require("ethereumjs-testrpc");
 
-contract('NeufundTestToken', function(accounts) {
-  it("should put 10000 NeufundTestToken in the first account", function() {
-    return NeufundTestToken.deployed().then(function(instance) {
-      return instance.balanceOf.call(accounts[0]);
-    }).then(function(balance) {
-      assert.equal(balance.valueOf(), Number(web3.toWei(10000, "ether")), "10000 wasn't in the first account");
+var toPromise = function (f, args) {
+    return new Promise((resolve, reject)=> {
+        var cb = function (error, data) {
+            if (error) {
+                reject(error);
+            }
+            else {
+                resolve(data);
+            }
+        };
+        if (Array.isArray(args)) {
+            f(...args, cb);
+        } else {
+            f(args, cb);
+        }
     });
-  });
-  it("should send coin correctly", function() {
-    var ntt;
+};
 
-    // Get initial balances of first and second account.
-    var account_one = accounts[0];
-    var account_two = accounts[1];
-
-    var account_one_starting_balance;
-    var account_two_starting_balance;
-    var account_one_ending_balance;
-    var account_two_ending_balance;
-
-    var amount = 10;
-
-    return NeufundTestToken.deployed().then(function(instance) {
-      ntt = instance;
-      return ntt.balanceOf.call(account_one);
-    }).then(function(balance) {
-      account_one_starting_balance = balance.toNumber();
-      return ntt.balanceOf.call(account_two);
-    }).then(function(balance) {
-      account_two_starting_balance = balance.toNumber();
-      return ntt.transfer(account_two, amount, {from: account_one});
-    }).then(function() {
-      return ntt.balanceOf.call(account_one);
-    }).then(function(balance) {
-      account_one_ending_balance = balance.toNumber();
-      return ntt.balanceOf.call(account_two);
-    }).then(function(balance) {
-      account_two_ending_balance = balance.toNumber();
-
-      assert.equal(account_one_ending_balance, account_one_starting_balance - amount, "Amount wasn't correctly taken from the sender");
-      assert.equal(account_two_ending_balance, account_two_starting_balance + amount, "Amount wasn't correctly sent to the receiver");
+contract('NeufundCrowdsaleToken', function (accounts) {
+    it("should put 0 NeufundCrowdsaleToken in the first account", function () {
+        return NeufundCrowdsaleToken.deployed().then(function (instance) {
+            return instance.balanceOf.call(accounts[0]);
+        }).then(function (balance) {
+            assert.equal(balance.valueOf(), 0, "0 wasn't in the first account");
+        });
     });
-  });
+    it("should send coin correctly", function () {
+        var web3 = new Web3();
+        web3.setProvider(new web3.providers.HttpProvider("http://localhost:8545"));
+
+        var ntt;
+        var value = 100;
+
+        return NeufundCrowdsaleToken.deployed().then(function (instance) {
+            ntt = instance;
+            return toPromise(web3.eth.sendTransaction, {
+                from: accounts[0],
+                value,
+                to: ntt.address
+            })
+        }).then(function () {
+            return Promise.all([ntt.balanceOf(accounts[0]), ntt.getPrice()]);
+        }).then(function (values) {
+            var [balance, price] = values.map((v)=>v.valueOf());
+            assert.equal(balance, 100 * price, `Should get ${value} * ${price} tokens`);
+        })
+    });
 });

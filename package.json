@@ -25,7 +25,8 @@
   "homepage": "https://github.com/Neufund/Contracts#readme",
   "dependencies": {
     "ethereumjs-testrpc": "^3.0.3",
-    "truffle": "^3.0.4"
+    "truffle": "^3.0.4",
+    "zeppelin-solidity": "^1.0.1"
   },
   "devDependencies": {
     "babel-loader": "^6.2.10",
