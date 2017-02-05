@@ -1,13 +1,13 @@
 language: node_js
 node_js:
-  - "6"
+- '6'
 compiler:
-  - gcc
-  - clang
+- gcc
+- clang
 os:
-  - linux
+- linux
 env:
-  - CXX=g++-4.8
+- CXX=g++-4.8
 addons:
   apt:
     sources:
@@ -17,6 +17,9 @@ addons:
     - g++-4.8
     - clang
 before_script:
-  - npm run testrpc > testrpc.log &
+- npm run testrpc > testrpc.log &
 after_script:
-  - cat testrpc.log
+- cat testrpc.log
+notifications:
+  slack:
+    secure: jxLzfTWszH4tISOcydKc9uT1mvfCVAuyrYOgfWxvsWWfGk+YuAX5Y7pJNs4ROWwBcKcgqpm2xHjaQEQ6/aMcar5WGkPkqMU6a7xg2DloRr1pKPzRCWxRhkUKkucvAT2soAYs8HOeO2wARuNRx6sBZwjgOCVr1kU9TAGyzWc21+C9NT4oP+CAlRqGU3AUiw401/qR3NP7hipIBPw5eDC/c434FLluZk4byfqPSHi1v8tmPU7yFP+m+rjBGZL+I1TtN7uE/HB7PHs72MVbnwVrgwYKlp/CZMT6A0eHcJ1V+TOIOBWIVS9iQOQSqy5RNbgidWLoaMLez60haV88EhVhLBp7IPssgsK4BoWys8NC+XT+V+B3B4hLG4V7i1IIkK7bK5v4l30TGf44q6cW/+MU6/vrSCr2LqIgjz7MUY2qEzUaQZ7+sqKS2R2taX6HphlpDqq0d5kvMIMqHiqiloqQOegh6OO/vE8sLosiBSyClvYP/L0eOFqgP6ATOtYgB6Cu6Y7kLZm+pVnZZ0FVc+7kogoCBnj4kBAxM3f+PBxXkx9zcmLdHwQCRH7lnM9LcQc7MqqvPQzdUfHspWnz+IGR2XDpHn+2e3zURK3VmSTtmq54lP/eeZq9Ujk5MBOqZG1nJTYOOFAqTf32jPZQLnDKIvSMcD01b+f6FtDXh4A4A9Y=
