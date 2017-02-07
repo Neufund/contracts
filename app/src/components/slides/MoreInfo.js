@@ -5,7 +5,7 @@ import styles from './MoreInfo.css';
 class MoreInfo extends React.Component {
     render() {
         return (
-            <Slide linkTo="/">
+            <Slide linkTo="/connect_ledger">
                 <div>More info on proposal</div>
                 <ul className={styles.list}>
                     <li>Vision of Neufund</li>
