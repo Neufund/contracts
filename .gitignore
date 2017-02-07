@@ -39,6 +39,3 @@ installed_contracts
 
 # Binary files
 bin
-
-Do not ignore contract artifacts
-!build
