@@ -16,6 +16,12 @@
     cursor: pointer;
 }
 
+.slideContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .slide {
     height: 100%;
 }

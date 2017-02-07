@@ -20,7 +20,9 @@ class Slide extends React.Component {
                     <a href="/faq">FAQ</a>
                     <a href="/support">Support</a>
                 </div>
-                {this.props.children}
+                <div className={styles.slideContent}>
+                    {this.props.children}
+                </div>
             </div>
         )
     }
