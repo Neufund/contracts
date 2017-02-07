@@ -1,4 +1,5 @@
 .app {
     font-family: "Open Sans", sans-serif;
-    background: linear-gradient(to right, #2F2F2F , #5F5F5F);
+    background: linear-gradient(to right, #2F2F2F, #5F5F5F);
+    height: 100vh;
 }
