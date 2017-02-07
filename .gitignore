@@ -39,3 +39,6 @@ installed_contracts
 
 # Binary files
 bin
+
+# Build artefacts
+build
