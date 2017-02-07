@@ -1,12 +1,13 @@
 import React from 'react';
-import neufund_logo from '../../images/nflogo.png';
 import styles from './Index.css';
+import {Link} from 'react-router'
 
 class Index extends React.Component {
     render() {
         return (
-            <div className={styles.index}>
-            </div>
+            <Link to="/welcome">
+                <div className={styles.index}></div>
+            </Link>
         );
     }
 }
