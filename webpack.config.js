@@ -41,6 +41,13 @@ module.exports = {
                     limit: 25000,
                 }
             },
+            {
+                test: /\.(ttf|svg|eot)$/,
+                loader: 'file-loader',
+                options: {
+                    name: 'fonts/[hash].[ext]',
+                },
+            },
         ]
     }
 }

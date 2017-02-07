@@ -6,6 +6,7 @@ class Welcome extends React.Component {
         return (
             <Slide linkTo="/">
                 <div>Welcome</div>
+                <div>Mrs Adamovicz</div>
             </Slide>
         );
     }

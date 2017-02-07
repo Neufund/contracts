@@ -6,8 +6,8 @@
     height: 20vh;
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: flex-end;
+    font-weight: 200;
 }
 
 .slideHeader > a {
