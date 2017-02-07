@@ -1,8 +1,4 @@
 .slideHeader {
-    background-image: url("../../../images/nflogo.png");
-    background-size: auto 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
     height: 20vh;
     display: flex;
     flex-direction: row;
@@ -28,4 +24,14 @@
 
 .slide {
     height: 100%;
+}
+
+.logo {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 10vh;
+    top: 5vh;
+    border-radius: 50%;
+    box-shadow: 0 0 10vh -1vh white;
 }

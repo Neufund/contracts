@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Slide.css';
 import {browserHistory} from 'react-router'
+import NeufundLogo from '../../../images/NeuFund_icon_light.png';
 
 class Slide extends React.Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class Slide extends React.Component {
         return (
             <div onClick={this.onClick} className={styles.slide}>
                 <div className={styles.slideHeader}>
+                    <img className={styles.logo} src={NeufundLogo}/>
                     <a href="/about">About</a>
                     <a href="/faq">FAQ</a>
                     <a href="/support">Support</a>
