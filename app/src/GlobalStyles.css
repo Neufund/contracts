@@ -7,3 +7,8 @@ body {
     font-family: NeutraText;
     src: url("../fonts/NeutraText-BookAlt.ttf") format('truetype');
 }
+
+@font-face {
+    font-family: Adam;
+    src: url("../fonts/Adam.otf") format('opentype');
+}
