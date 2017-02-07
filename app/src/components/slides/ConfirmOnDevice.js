@@ -6,6 +6,7 @@ class ConfirmOnDevice extends React.Component {
     render() {
         return (
             <Slide linkTo="/success">
+                <p>Confirm on device</p>
             </Slide>
         );
     }

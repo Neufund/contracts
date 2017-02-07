@@ -6,6 +6,7 @@ class Success extends React.Component {
     render() {
         return (
             <Slide linkTo="/">
+                <p>You're amazing!!!</p>
             </Slide>
         );
     }

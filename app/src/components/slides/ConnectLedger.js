@@ -6,6 +6,7 @@ class ConnectLedger extends React.Component {
     render() {
         return (
             <Slide linkTo="/confirm_data">
+                <p>Connect your Ledger</p>
             </Slide>
         );
     }

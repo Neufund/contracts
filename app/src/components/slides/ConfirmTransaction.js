@@ -6,6 +6,7 @@ class ConfirmTransaction extends React.Component {
     render() {
         return (
             <Slide linkTo="/confirm_on_device">
+                <p>Confirm transaction</p>
             </Slide>
         );
     }

@@ -6,6 +6,7 @@ class BuyTokens extends React.Component {
     render() {
         return (
             <Slide linkTo="/confirm_transaction">
+                <p>Buy tokens</p>
             </Slide>
         );
     }
