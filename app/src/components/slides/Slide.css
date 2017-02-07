@@ -1,0 +1,21 @@
+.slideHeader {
+    background-image: url("../../../images/nflogo.png");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.slideHeader > a {
+    margin: 0.5em;
+    color: white;
+    cursor: pointer;
+}
+
+.slide {
+    height: 100%;
+}
