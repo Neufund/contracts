@@ -1,0 +1,31 @@
+.step1 {
+    width: 100%;
+    background-image: url("../../../images/nano1.png");
+    background-size: auto 50%;
+    background-repeat: no-repeat;
+    background-position: left;
+    flex: 1;
+}
+
+.step2 {
+    width: 100%;
+    background-image: url("../../../images/nano2.png");
+    background-size: auto 28%;
+    background-repeat: no-repeat;
+    background-position: left;
+    flex: 1;
+}
+
+.step3 {
+    width: 100%;
+    background-image: url("../../../images/nano3.png");
+    background-size: auto 28%;
+    background-repeat: no-repeat;
+    background-position: left;
+    flex: 1;
+}
+
+.paragraph{
+    font-size: small;
+    padding-left: 40vw;
+}
