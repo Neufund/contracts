@@ -4,6 +4,7 @@ import { default as Web3} from 'web3';
 import React from 'react'
 import { render } from 'react-dom'
 import App from './components/App.js'
+import '!style-loader!css-loader!./GlobalStyles.css';
 
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
