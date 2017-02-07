@@ -3,7 +3,10 @@ import "../stylesheets/app.css";
 
 // Import libraries we need.
 import { default as Web3} from 'web3';
-import { default as App} from './eth_app';
+
+import React from 'react'
+import { render } from 'react-dom'
+import App from './components/App.js'
 
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
@@ -25,5 +28,5 @@ window.addEventListener('load', function() {
     window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
   }
 
-  App.start();
+  render(<App/>, document.getElementById('react'))
 });
