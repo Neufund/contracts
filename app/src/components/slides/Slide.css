@@ -10,10 +10,12 @@
 }
 
 .slideHeader > a {
-    margin: 0.5em;
+    margin: 1em;
     color: white;
     cursor: pointer;
     text-decoration: none;
+    font-family: Adam, serif;
+    font-size: x-small;
 }
 
 .slideContent {
