@@ -1,6 +1,7 @@
 .index {
     background-image: url("../../images/nflogo.png");
-    background-size: auto 100%;
-    background-position: center top;
+    background-size: auto 60%;
+    background-repeat: no-repeat;
+    background-position: center center;
     height: 100%;
 }
