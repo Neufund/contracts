@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Slide.css';
-import {browserHistory} from 'react-router'
+import {hashHistory} from 'react-router'
 import NeufundLogo from '../../../images/NeuFund_icon_light.png';
 
 class Slide extends React.Component {
@@ -10,7 +10,7 @@ class Slide extends React.Component {
     }
 
     onClick() {
-        browserHistory.push(this.props.linkTo);
+        hashHistory.push(this.props.linkTo);
     }
 
     render() {
