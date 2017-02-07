@@ -1,30 +1,36 @@
-var webpack = require("webpack");
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: './app/javascripts/app.js',
-    output: {
-        path: "./build",
-        filename: 'app.js'
-    },
-    module: {
-        loaders: [
-            { test: /\.(js|jsx|es6)$/, exclude: /node_modules/, loader: "babel-loader"},
-            { test: /\.scss$/i, loader: ExtractTextPlugin.extract(["css", "sass"])},
-            { test: /\.json$/i, loader: "json-loader"},
-            { test: /\.sol/, loader: 'truffle-solidity' }
-        ]
-    },
-    plugins: [
-        new CopyWebpackPlugin([
-            { from: './app/index.html', to: "index.html" },
-            { from: './app/images', to: "images" },
-            { from: './app/fonts', to: "fonts" }
-        ]),
-        new ExtractTextPlugin("app.css")
+  entry: './app/javascripts/app.js',
+  output: {
+    path: path.resolve(__dirname, 'build'),
+    filename: 'app.js'
+  },
+  plugins: [
+    // Copy our app's index.html to the build folder.
+    new CopyWebpackPlugin([
+      { from: './app/index.html', to: "index.html" }
+    ])
+  ],
+  module: {
+    rules: [
+      {
+       test: /\.css$/,
+       use: [ 'style-loader', 'css-loader' ]
+      }
     ],
-    devServer: {
-        stats: 'errors-only',
-    }
-};
+    loaders: [
+      { test: /\.json$/, use: 'json-loader' },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015'],
+          plugins: ['transform-runtime']
+        }
+      }
+    ]
+  }
+}
