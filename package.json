@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint ./",
     "build": "webpack",
-    "dev": "webpack-dev-server --hot --https --open --colors --progress",
+    "dev": "webpack-dev-server --hot --https --open --colors --progress --history-api-fallback",
     "watch": "truffle watch"
   },
   "repository": {
