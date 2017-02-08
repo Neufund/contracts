@@ -1,0 +1,19 @@
+.details {
+    width: 100%;
+    background-image: url("../../../images/halfwallet.png");
+    background-size: auto 200%;
+    background-repeat: no-repeat;
+    background-position: center -3vh;
+    flex: 1;
+}
+
+.confirm {
+    width: 100%;
+    background: gray;
+    border-radius: 4vh;
+    background-image: url("../../../images/nano4.png");
+    background-size: auto 30%;
+    background-repeat: no-repeat;
+    background-position: center 5vh;
+    flex: 1;
+}
