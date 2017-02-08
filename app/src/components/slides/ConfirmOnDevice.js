@@ -5,11 +5,12 @@ import slideWrapper from './SlideWrapper.css'
 import {toPromise} from '../../utils';
 import getICOContract from '../../ICO';
 import web3 from '../../initWeb3';
+import LinearProgress from 'material-ui/LinearProgress';
 
 class ConfirmOnDevice extends React.Component {
     constructor() {
         super();
-        this.state = {txHash: null, confirmed: false};
+        this.state = {txHash: null, confirmations: 0};
         this.latestFilter = web3.eth.filter('latest');
         this.sendDonation();
     }
@@ -20,13 +21,15 @@ class ConfirmOnDevice extends React.Component {
 
     async sendDonation() {
         let ICO = await getICOContract();
-        let accounts = await toPromise(web3.eth.getAccounts);
-        let tokens = await ICO.balanceOf(accounts[0], {from: accounts[0]});
+        if (!web3.eth.defaultAccount) {
+            let accounts = await toPromise(web3.eth.getAccounts);
+            web3.eth.defaultAccount = accounts[0];
+        }
+        let tokens = await ICO.balanceOf(web3.eth.defaultAccount, {from: web3.eth.defaultAccount});
         console.log(`You have ${tokens.valueOf()} tokens`);
-        web3.eth.defaultAccount = accounts[0];
         let txHash = await toPromise(web3.eth.sendTransaction, {
             value: web3.toWei(0.01, "ether"),
-            from: accounts[0],
+            from: web3.eth.defaultAccount,
             to: ICO.address,
             gas: 89000
         });
@@ -35,7 +38,8 @@ class ConfirmOnDevice extends React.Component {
     }
 
     async onConfirmed(receipt) {
-        this.setState({confirmed: true});
+        let confirmations = this.state.confirmations + 1;
+        this.setState({confirmations});
         console.log(receipt);
     }
 
@@ -61,13 +65,22 @@ class ConfirmOnDevice extends React.Component {
 
     renderTransactionState() {
         if (!this.state.txHash) {
-            return <p>Please confirm on device</p>
-        } else {
             return (
-                <p>
-                    <div>Tx hash: {this.state.txHash}</div>
-                    <div>{this.state.confirmed ? "CONFIRMED!" : "PENDING"}</div>
-                </p>
+                <div>
+                    <p>Please confirm on device</p>
+                    <LinearProgress mode="indeterminate"/>
+                </div>
+            );
+        } else {
+            let txLink = "https://testnet.etherscan.io/tx/" + this.state.txHash;
+            return (
+                <div>
+                    <div>
+                        <a href={txLink} target="_blank">Transaction</a> is being confirmed
+                    </div>
+                    <LinearProgress mode="determinate" value={this.state.confirmations} max={12}>
+                    </LinearProgress>
+                </div>
             )
         }
     }

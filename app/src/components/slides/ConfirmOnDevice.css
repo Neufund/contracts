@@ -21,5 +21,8 @@
 }
 
 .txState {
-
+    align-self: center;
+    padding-bottom: 5vh;
+    width: 80%;
+    font-size: small;
 }
