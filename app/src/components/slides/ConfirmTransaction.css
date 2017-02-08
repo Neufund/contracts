@@ -1,0 +1,8 @@
+.details {
+    width: 100%;
+    background-image: url("../../../images/halfwallet.png");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center 31vh;
+    flex: 1;
+}
