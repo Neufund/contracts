@@ -29,3 +29,6 @@
     font-size: small;
     padding-left: 40vw;
 }
+.paragraph > p{
+    font-size: large;
+}
