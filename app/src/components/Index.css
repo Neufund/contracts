@@ -1,7 +1,13 @@
 .index {
-    background-image: url("../../images/nflogo.png");
-    background-size: auto 60%;
-    background-repeat: no-repeat;
-    background-position: center center;
     height: 100%;
+}
+
+.logo{
+    position: fixed;
+    left: 50%;
+    top:50%;
+    height: 40vh;
+    border-radius: 50%;
+    box-shadow: 0 0 15vh -5vh white;
+    transform: translate(-50%, -50%);
 }
