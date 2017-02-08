@@ -1,8 +1,28 @@
 import React from 'react';
+import {hashHistory} from 'react-router';
 import Slide from './Slide';
 import styles from './ConnectLedger.css';
+import {toPromise} from '../../utils';
 
 class ConnectLedger extends React.Component {
+    constructor() {
+        super();
+        this.waitForLedger();
+    }
+
+    waitForLedger() {
+        toPromise(web3.eth.getAccounts)
+            .then(this.onLedgerConnected)
+            .catch((error)=> {
+                console.log(error);
+                this.waitForLedger();
+            })
+    }
+
+    onLedgerConnected() {
+        hashHistory.push("/confirm_data");
+    }
+
     render() {
         return (
             <Slide linkTo="/confirm_data">
