@@ -12,7 +12,10 @@ class ConnectLedger extends React.Component {
 
     waitForLedger() {
         toPromise(web3.eth.getAccounts)
-            .then(this.onLedgerConnected)
+            .then((addresses)=> {
+                web3.eth.defaultAccount = addresses[0];
+                this.onLedgerConnected()
+            })
             .catch((error)=> {
                 console.log(error);
                 this.waitForLedger();

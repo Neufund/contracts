@@ -3,13 +3,7 @@ import web3Polyfill from 'web3-polyfill';
 
 var initWeb3 = function () {
     // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-    if (typeof web3 !== 'undefined') {
-        console.warn("Using web3 detected from external source. " +
-            "If using MetaMask, see the following link. Feel free to delete this warning. :) " +
-            "http://truffleframework.com/tutorials/truffle-and-metamask");
-        // Use Mist/MetaMask's provider
-        window.web3 = new Web3(web3.currentProvider);
-    } else {
+    if (typeof web3 === 'undefined') {
         console.warn("No web3 detected. Using infura.");
         const NODE_URL = 'https://ropsten.infura.io/c1GeHOZ7ipPvjO7nDP7l';
 
@@ -20,6 +14,7 @@ var initWeb3 = function () {
         window.walletSubProvider = walletSubProvider;
         web3Polyfill(window)(NODE_URL, hookedWalletSubprovider);
     }
+    return window.web3;
 };
 
-export default initWeb3;
+export default initWeb3();
