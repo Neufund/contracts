@@ -1,0 +1,24 @@
+.balance {
+    margin: 3vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 18vh;
+}
+
+.balance > img {
+    width: 12vw;
+    height: auto;
+}
+
+.balance > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1vh;
+    box-shadow: 0 0 5px #95B6FF;
+    border: 1px #95B6FF solid;
+}
+.balance > div > span {
+    line-height: 5vh;
+    padding-top: 3px;
+}
