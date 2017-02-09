@@ -1,8 +1,9 @@
 {
   "presets": [
     "env",
+    "es2015",
     "react",
-    "es2015"
+    "react-hmre"
   ],
   "plugins": [
     "transform-runtime",
