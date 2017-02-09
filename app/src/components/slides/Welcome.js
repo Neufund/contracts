@@ -9,7 +9,7 @@ class Welcome extends React.Component {
             <Slide linkTo="/more_info">
                 <div className={slideWrapper.wrapper}>
                     <h1 className={styles.header}>Welcome</h1>
-                    <h1 className={styles.header}>Mrs Adamovicz</h1>
+                    <h1 className={styles.header}>Mr Logvinov</h1>
                     <p>
                         This wizard will guide you through
                         setting up your Neufund wallet and
