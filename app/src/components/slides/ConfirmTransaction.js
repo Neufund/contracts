@@ -18,12 +18,12 @@ class ConfirmTransaction extends React.Component {
                         <div className={styles.body}>
                             <div className={styles.eth}>
                                 <img src={ETHWhite} alt="ETH"/>
-                                <div>100</div>
+                                <div>1</div>
                             </div>
                             <div className={styles.conversion}>⇄</div>
                             <div className={styles.nmk}>
                                 <img src={NMKWhite} alt="NMK"/>
-                                <div>50000</div>
+                                <div>500</div>
                             </div>
                         </div>
                         <div className={styles.confirm}>

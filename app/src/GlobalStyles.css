@@ -12,3 +12,8 @@ body {
     font-family: Adam;
     src: url("../fonts/Adam.otf") format('opentype');
 }
+
+@font-face {
+    font-family: Suissnord;
+    src: url("../fonts/Suissnord.otf") format('opentype');
+}
