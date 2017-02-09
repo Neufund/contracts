@@ -16,6 +16,7 @@ addons:
     - gcc-4.8
     - g++-4.8
     - clang
+cache: yarn
 before_script:
 - npm run testrpc > testrpc.log &
 after_script:
