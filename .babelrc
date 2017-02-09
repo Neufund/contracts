@@ -5,6 +5,8 @@
     "es2015"
   ],
   "plugins": [
-    "transform-runtime"
+    "transform-runtime",
+    "transform-function-bind",
+    "transform-class-properties"
   ]
 }
