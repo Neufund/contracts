@@ -1,0 +1,11 @@
+.btn {
+    margin-top: 2vh;
+    box-sizing: border-box;
+    font-size: larger;
+    font-family: Adam, serif;
+    width: 100%;
+    background-color: #eaed32;
+    border-radius: 2vh;
+    border: 2px solid #999c24;
+    cursor: pointer;
+}

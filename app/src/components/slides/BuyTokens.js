@@ -3,6 +3,7 @@ import Slide from './Slide';
 import styles from './BuyTokens.css';
 import slideWrapper from './SlideWrapper.css'
 import Balance from '../Balance';
+import button from '../Button.css';
 
 class BuyTokens extends React.Component {
     render() {
@@ -13,7 +14,11 @@ class BuyTokens extends React.Component {
                     <p>Your pre-determined ticket size is 150 NMKs</p>
                     <div className={styles.details}>
                         <Balance of="ETH"/>
-                        <Balance of="NMK"/>
+                        <Balance of="NMK">
+                            <button className={button.btn}>
+                                Buy
+                            </button>
+                        </Balance>
                     </div>
                 </div>
             </Slide>

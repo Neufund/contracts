@@ -25,13 +25,6 @@
     padding: 1vh;
 }
 
-.confirm {
-    margin: 2vh;
-    font-size: larger;
-    font-family: Adam, serif;
-    width: 15vw;
-    background-color: #eaed32;
-    border-radius: 2vh;
-    border: 2px solid #999c24;
-    cursor: pointer;
+.details > button {
+    width: 20vw;
 }

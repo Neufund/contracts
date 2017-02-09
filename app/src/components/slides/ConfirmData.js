@@ -2,6 +2,7 @@ import React from 'react';
 import Slide from './Slide';
 import styles from './ConfirmData.css';
 import slideWrapper from './SlideWrapper.css'
+import button from '../Button.css';
 
 class ConfirmData extends React.Component {
     render() {
@@ -14,7 +15,7 @@ class ConfirmData extends React.Component {
                         <span className={styles.name}>Leonid Logvinov</span>
                         <span className={styles.email}>logvinov.leon@gmail.com</span>
                         <span className={styles.phone}>+49 (151) 629-44-829</span>
-                        <button className={styles.confirm}>
+                        <button className={button.btn}>
                             <span>Confirm</span>
                         </button>
                     </div>
