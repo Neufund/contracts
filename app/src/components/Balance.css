@@ -6,7 +6,7 @@
 }
 
 .balance > img {
-    width: 12vw;
+    width: 12vh;
     height: auto;
 }
 
@@ -20,6 +20,5 @@
 }
 .balance > div > span {
     line-height: 5vh;
-    padding-top: 3px;
     font-family: Suissnord;
 }
