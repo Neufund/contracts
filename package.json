@@ -7,6 +7,8 @@
     "test": "test"
   },
   "scripts": {
+    "testrpc": "testrpc",
+    "test": "truffle test",
     "lint": "eslint ./",
     "build": "webpack",
     "dev": "webpack-dev-server --hot --https --open --colors --progress --history-api-fallback",
