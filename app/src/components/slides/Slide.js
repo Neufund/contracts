@@ -11,7 +11,9 @@ class Slide extends React.Component {
     }
 
     onClick() {
-        hashHistory.push(this.props.linkTo);
+        if (this.props.linkTo) {
+            hashHistory.push(this.props.linkTo);
+        }
     }
 
     render() {
