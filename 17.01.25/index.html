@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Nano Ledger S Dapp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="container">
+    <nav></nav>
+
+    <div class="jumbotron">
+        <h1>Welcome to Neufund!</h1>
+        <p class="lead">We wil help you invest in Neufund.</p>
+        <p>This should take only a few minutes, and we will walk you trough it.</p>
+    </div>
+
+    <h2>Step 1: Connect to the Ethereum network</h2>
+    <p>
+        What you do: Wait for the app to connect.
+    </p>
+    <form>
+        <div class="form-group">
+            <label for="ethereum_provider">Connection provider</label>
+            <input type="text" class="form-control" id="ethereum_provider" placeholder="Connecting…" readonly>
+        </div>
+        <div class="form-group">
+            <label for="ethereum_network">Ethereum Network</label>
+            <input type="text" class="form-control" id="ethereum_network" placeholder="" readonly>
+        </div>
+        <div class="form-group">
+            <label for="ethereum_block">Current block</label>
+            <input type="text" class="form-control" id="ethereum_block" placeholder="" readonly>
+        </div>
+    </form>
+
+
+    <h2>Step 2a: Connect to your hardware wallet</h2>
+    <p>
+        What you need: Either Chrome, Opera or Firefox with plugin destop browser.<br>
+        What you do:
+    <ul>
+        <li>Connect your ledger Nano S</li>
+        <li>Provide the pin (5555 for test nano)</li>
+        <li>Open an ethereum App</li>
+    </ul>
+    Troubleshooting:
+    <ul>
+        <li>If u2f version is not showing - make sure you are using Chrome/Opera/Firefox with u2f extension</li>
+        <li>If wallet version is not showing - make sure the ethereum app is opened on your nano</li>
+        <li>Contract function calls should be allowed. If not - change the settings on your nano</li>
+        <li>Wallet app version should be at least 1.0.4</li>
+    </ul>
+    <br>
+    What we do: We poll for the device presence.
+    </p>
+    <form>
+        <div class="form-group">
+            <label for="u2f_version">U2F Version</label>
+            <input type="text" class="form-control" id="u2f_version" placeholder="" readonly>
+        </div>
+        <div class="form-group">
+            <label for="arbitrary_data_allowed">Contract function calls allowed</label>
+            <input type="text" class="form-control" id="arbitrary_data_allowed" placeholder="" readonly>
+        </div>
+        <div class="form-group">
+            <label for="ledger_version">Wallet Version</label>
+            <input type="text" class="form-control" id="ledger_version" placeholder="" readonly>
+        </div>
+    </form>
+
+    <h2>Step 2b: Open your hardware wallet</h2>
+    <p>
+        What you need: Either Chrome, Opera or Firefox with plugin destop browser.<br>
+        What you do: Connect your Ledger Nano S to USB<br>
+        What we do: keep the balance updated as you faucet and/or invest
+    </p>
+    <form>
+        <div class="form-group">
+            <label for="wallet_address">Wallet Address</label>
+            <input type="text" class="form-control" id="wallet_address" placeholder="" readonly>
+        </div>
+        <div class="form-group">
+            <label for="wallet_balance">Wallet Balance</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="wallet_balance" placeholder="" readonly>
+                <span class="input-group-addon">ETH</span>
+            </div>
+        </div>
+        <p><a href="http://faucet.ropsten.be:3001/" target="_blank">Free testnet coins</a></p>
+    </form>
+
+    <h2>Step 3a: Connect to Neufund ICO</h2>
+    <p>
+        What you do: wait<br>
+        What we do: fill this in and keep it updated as soon as there is Eth connection
+    </p>
+    <form>
+        <div class="form-group">
+            <label for="neufund_address">Neufund Address</label>
+            <input type="text" class="form-control" id="neufund_address"
+                   value="0xa57Da36D823976D21B8A6e1c584f17FCB4BF116a" readonly>
+        </div>
+        <div class="form-group">
+            <label for="amount_invested">Total amount invested</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="amount_invested" placeholder="" readonly>
+                <span class="input-group-addon">ETH</span>
+            </div>
+        </div>
+    </form>
+
+    <h2>Step 3b: Invest in Neufund ICO</h2>
+    <p>
+        What you do: Fill in the amount to donate, click invest, sign transaction<br>
+        What we do: keep you up to date on transaction progress (waiting for signature, sending to network, waiting for
+        block, waiting for confirmations, success)
+    </p>
+    <form>
+        <div class="form-group">
+            <label for="invest_amount">Amount</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="invest_amount" value="0.001">
+                <span class="input-group-addon">ETH</span>
+            </div>
+        </div>
+        <button type="button" class="btn btn-warning" id="btn_invest">Invest</button>
+        <div class="form-group">
+            <label for="invest_status">Investment status:</label>
+            <input type="text" class="form-control" id="invest_status" placeholder="" value="no investment" readonly>
+            <div class="progress" style="display: none">
+                <div class="progress-bar" id="tx_progress" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                     aria-valuemax="30"
+                     style="min-width: 1em;"></div>
+            </div>
+        </div>
+    </form>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.js"
+        integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+        crossorigin="anonymous"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
