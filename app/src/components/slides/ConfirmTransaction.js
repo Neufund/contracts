@@ -4,7 +4,7 @@ import styles from './ConfirmTransaction.css';
 import slideWrapper from './SlideWrapper.css';
 import button from '../Button.css';
 import ETHWhite from '../../../images/ETHlogowhite.png';
-import NMKWhite from '../../../images/NMKlogowhite.png';
+import NMKWhite from '../../../images/nmklogowhite.png';
 
 class ConfirmTransaction extends React.Component {
     render() {
