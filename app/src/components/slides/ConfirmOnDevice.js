@@ -42,7 +42,7 @@ class ConfirmOnDevice extends React.Component {
 
     async onConfirmed(receipt) {
         let confirmations = this.state.confirmations + 1;
-        if (confirmations < 3) {
+        if (confirmations < 2) {
             this.setState({confirmations});
         } else {
             hashHistory.push("/success");
@@ -84,7 +84,7 @@ class ConfirmOnDevice extends React.Component {
                     <h2>
                         <a href={txLink} target="_blank">Transaction</a> is being confirmed
                     </h2>
-                    <LinearProgress mode="determinate" value={this.state.confirmations} max={12}>
+                    <LinearProgress mode="determinate" value={this.state.confirmations} max={2}>
                     </LinearProgress>
                 </div>
             )
