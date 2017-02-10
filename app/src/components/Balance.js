@@ -4,7 +4,7 @@ import ETHLogo from '../../images/ETHlogo.png';
 import NMKLogo from '../../images/NMKlogo.png';
 import web3 from '../initWeb3';
 import getICOContract from '../ICO';
-import {toPromise} from '../utils';
+import {toPromise, makeCancelable} from '../utils';
 import {hashHistory} from 'react-router';
 import BigNumber from 'bignumber.js';
 
@@ -23,34 +23,39 @@ class Balance extends React.Component {
     async componentWillMount() {
         if (web3.eth.defaultAccount) {
             this.account = web3.eth.defaultAccount;
+            // Provider engine throws if no block is loaded
+            let block = await toPromise(web3.eth.getBlock, "latest");
+            this.fetchBalance();
         } else {
             hashHistory.push("/connect_ledger");
         }
-        // Provider engine throws if no block is loaded
-        let block = await toPromise(web3.eth.getBlock, "latest");
-        this.fetchBalance();
+    }
+
+    componentWillUnmount() {
+        if (this.promise) {
+            this.promise.cancel();
+        }
     }
 
     async fetchBalance() {
         if (this.props.of === "ETH") {
-            this.fetchETH()
+            this.promise = makeCancelable(this.fetchETH())
         } else {
-            this.fetchNMK()
+            this.promise = makeCancelable(this.fetchNMK())
         }
+        this.promise.promise.then((balance)=>this.setState({balance}))
     }
 
     async fetchETH() {
         let balance = await toPromise(web3.eth.getBalance, this.account);
-        balance = Number(web3.fromWei(balance.valueOf(), "ether")).toFixed(3);
-        this.setState({balance});
+        Number(web3.fromWei(balance.valueOf(), "ether")).toFixed(3);
     }
 
     async fetchNMK() {
         let ICO = await getICOContract();
         let tokens = await ICO.balanceOf.call(this.account, {from: this.account});
         let decimals = await ICO.decimals.call({from: this.account});
-        let balance = tokens.div(new BigNumber(10).pow(decimals)).valueOf();
-        this.setState({balance});
+        tokens.div(new BigNumber(10).pow(decimals)).valueOf();
     }
 
     render() {
