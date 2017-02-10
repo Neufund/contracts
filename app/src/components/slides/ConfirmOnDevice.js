@@ -6,6 +6,7 @@ import {toPromise} from '../../utils';
 import getICOContract from '../../ICO';
 import web3 from '../../initWeb3';
 import LinearProgress from 'material-ui/LinearProgress';
+import {Link, hashHistory} from 'react-router';
 
 class ConfirmOnDevice extends React.Component {
     constructor() {
@@ -16,14 +17,16 @@ class ConfirmOnDevice extends React.Component {
     }
 
     componentWillUnmount() {
-        this.latestFilter.stopWatching();
+        this.latestFilter.stopWatching(()=> {
+        });
     }
 
     async sendDonation() {
         let ICO = await getICOContract();
-        if (!web3.eth.defaultAccount) {
-            let accounts = await toPromise(web3.eth.getAccounts);
-            web3.eth.defaultAccount = accounts[0];
+        if (web3.eth.defaultAccount) {
+            let accounts = web3.eth.defaultAccount
+        } else {
+            hashHistory.push("/connect_ledger");
         }
         let tokens = await ICO.balanceOf(web3.eth.defaultAccount, {from: web3.eth.defaultAccount});
         console.log(`You have ${tokens.valueOf()} tokens`);
@@ -39,8 +42,11 @@ class ConfirmOnDevice extends React.Component {
 
     async onConfirmed(receipt) {
         let confirmations = this.state.confirmations + 1;
-        this.setState({confirmations});
-        console.log(receipt);
+        if (confirmations < 3) {
+            this.setState({confirmations});
+        } else {
+            hashHistory.push("/success");
+        }
     }
 
     async onNewBlock(error, result) {
@@ -67,7 +73,7 @@ class ConfirmOnDevice extends React.Component {
         if (!this.state.txHash) {
             return (
                 <div>
-                    <p>Please confirm on device</p>
+                    <h2>Please confirm on device</h2>
                     <LinearProgress mode="indeterminate"/>
                 </div>
             );
@@ -75,9 +81,9 @@ class ConfirmOnDevice extends React.Component {
             let txLink = "https://testnet.etherscan.io/tx/" + this.state.txHash;
             return (
                 <div>
-                    <div>
+                    <h2>
                         <a href={txLink} target="_blank">Transaction</a> is being confirmed
-                    </div>
+                    </h2>
                     <LinearProgress mode="determinate" value={this.state.confirmations} max={12}>
                     </LinearProgress>
                 </div>
@@ -88,9 +94,9 @@ class ConfirmOnDevice extends React.Component {
     render() {
         let transactionState = this.renderTransactionState();
         return (
-            <Slide linkTo="/success">
+            <Slide>
                 <div className={slideWrapper.wrapper}>
-                    <p>Confirm on device</p>
+                    <h1>Confirm on device</h1>
                     <div className={styles.confirm}>
                         <div className={styles.txState}>{transactionState}</div>
                     </div>

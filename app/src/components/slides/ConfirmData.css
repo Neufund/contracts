@@ -24,6 +24,9 @@
 .phone {
     padding: 1vh;
 }
+.details{
+    font-size: 3vh;
+}
 
 .details > button {
     width: 20vw;

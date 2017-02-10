@@ -6,7 +6,7 @@ class Tutorial extends React.Component {
     render() {
         return (
             <Slide linkTo="/buy_tokens">
-                <p>I'm a tutorial</p>
+                <h1>I'm a tutorial</h1>
             </Slide>
         );
     }

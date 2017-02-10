@@ -35,7 +35,10 @@
     width: 40vw;
     box-shadow: 0 0 5px gray;
     flex: 3;
-    font-family: Adam;
+    font-family: Adam, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .body {
@@ -56,7 +59,7 @@
     background-color: white;
     color: black;
     border-radius: 1vh;
-    font-family: Suissnord;
+    font-family: Suissnord, serif;
 }
 
 .conversion {

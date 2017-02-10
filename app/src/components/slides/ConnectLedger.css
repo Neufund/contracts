@@ -26,7 +26,8 @@
 }
 
 .paragraph{
-    font-size: small;
+    font-size: x-large;
+    padding-top: 3vh;
     padding-left: 40vw;
 }
 .paragraph > p{

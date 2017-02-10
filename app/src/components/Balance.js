@@ -5,6 +5,7 @@ import NMKLogo from '../../images/NMKlogo.png';
 import web3 from '../initWeb3';
 import getICOContract from '../ICO';
 import {toPromise} from '../utils';
+import {hashHistory} from 'react-router';
 import BigNumber from 'bignumber.js';
 
 class Balance extends React.Component {
@@ -17,10 +18,14 @@ class Balance extends React.Component {
         this.state = {
             balance: "..."
         };
-        this.account = "0x3ce8cce8b7dac94d228a85c2328b926279ab9b06";
     }
 
     async componentWillMount() {
+        if (web3.eth.defaultAccount) {
+            this.account = web3.eth.defaultAccount;
+        } else {
+            hashHistory.push("/connect_ledger");
+        }
         // Provider engine throws if no block is loaded
         let block = await toPromise(web3.eth.getBlock, "latest");
         this.fetchBalance();

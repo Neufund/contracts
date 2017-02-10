@@ -6,11 +6,11 @@ import NeufundLogo from '../../images/NeuFund_icon_light.png';
 class Index extends React.Component {
     render() {
         return (
-            <Link to="/welcome">
-                <div className={styles.index}>
+            <div className={styles.index}>
+                <Link to="/welcome">
                     <img className={styles.logo} src={NeufundLogo}/>
-                </div>
-            </Link>
+                </Link>
+            </div>
         );
     }
 }

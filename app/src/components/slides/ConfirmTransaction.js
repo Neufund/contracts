@@ -5,15 +5,16 @@ import slideWrapper from './SlideWrapper.css';
 import button from '../Button.css';
 import ETHWhite from '../../../images/ETHlogowhite.png';
 import NMKWhite from '../../../images/nmklogowhite.png';
+import {Link} from 'react-router';
 
 class ConfirmTransaction extends React.Component {
     render() {
         return (
-            <Slide linkTo="/confirm_on_device">
+            <Slide>
                 <div className={slideWrapper.wrapper}>
                     <div className={styles.transaction}>
                         <div className={styles.header}>
-                            1 ETH = 500 NMK
+                            <span>1 ETH = 500 NMK</span>
                         </div>
                         <div className={styles.body}>
                             <div className={styles.eth}>
@@ -27,7 +28,9 @@ class ConfirmTransaction extends React.Component {
                             </div>
                         </div>
                         <div className={styles.confirm}>
-                            <button className={button.btn}>Confirm</button>
+                            <Link to="/confirm_on_device">
+                                <button className={button.btn}>Confirm</button>
+                            </Link>
                         </div>
                     </div>
                     <p className={styles.note}>Note: you would be able to increase your pledge later</p>

@@ -8,10 +8,9 @@
 .slideHeader > a {
     margin: 1em;
     color: white;
-    cursor: pointer;
     text-decoration: none;
     font-family: Adam, serif;
-    font-size: x-small;
+    font-size: small;
 }
 
 .slideContent {
