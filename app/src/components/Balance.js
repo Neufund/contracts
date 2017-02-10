@@ -43,19 +43,21 @@ class Balance extends React.Component {
         } else {
             this.promise = makeCancelable(this.fetchNMK())
         }
-        this.promise.promise.then((balance)=>this.setState({balance}))
+        this.promise.promise.then((balance)=> {
+            this.setState({balance})
+        }).catch(() => {})
     }
 
     async fetchETH() {
         let balance = await toPromise(web3.eth.getBalance, this.account);
-        Number(web3.fromWei(balance.valueOf(), "ether")).toFixed(3);
+        return Number(web3.fromWei(balance.valueOf(), "ether")).toFixed(3);
     }
 
     async fetchNMK() {
         let ICO = await getICOContract();
         let tokens = await ICO.balanceOf.call(this.account, {from: this.account});
         let decimals = await ICO.decimals.call({from: this.account});
-        tokens.div(new BigNumber(10).pow(decimals)).valueOf();
+        return tokens.div(new BigNumber(10).pow(decimals)).valueOf();
     }
 
     render() {
