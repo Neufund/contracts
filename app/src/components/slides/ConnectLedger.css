@@ -1,35 +1,20 @@
-.step1 {
-    width: 100%;
-    background-image: url("../../../images/nano1.png");
-    background-size: auto 50%;
-    background-repeat: no-repeat;
-    background-position: left;
-    flex: 1;
+.logo {
+    padding-top: 10vh;
+    height: 15vh;
 }
 
-.step2 {
-    width: 100%;
-    background-image: url("../../../images/nano2.png");
-    background-size: auto 28%;
-    background-repeat: no-repeat;
-    background-position: left;
-    flex: 1;
+.header {
+
 }
 
-.step3 {
-    width: 100%;
-    background-image: url("../../../images/nano3.png");
-    background-size: auto 28%;
-    background-repeat: no-repeat;
-    background-position: left;
-    flex: 1;
+.subheader {
+
 }
 
-.paragraph{
-    font-size: x-large;
-    padding-top: 3vh;
-    padding-left: 40vw;
-}
-.paragraph > p{
-    font-size: large;
+.loader {
+    height: 20vh;
+    width: 20vh;
+    background-image: url('../../../images/loader.svg');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
 }
