@@ -2,7 +2,8 @@ import React from 'react';
 import styles from './Slide.css';
 import {hashHistory} from 'react-router'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import NeufundLogo from '../../../images/NeuFund_icon_light.png';
+import SlideFooter from './SlideFooter';
+import SlideHeader from './SlideHeader';
 
 class Slide extends React.Component {
     constructor(props) {
@@ -19,16 +20,12 @@ class Slide extends React.Component {
     render() {
         return (
             <MuiThemeProvider>
-                <div onClick={this.onClick} className={styles.slide}>
-                    <div className={styles.slideHeader}>
-                        <img className={styles.logo} src={NeufundLogo}/>
-                        <a href="/about">About</a>
-                        <a href="/faq">FAQ</a>
-                        <a href="/support">Support</a>
-                    </div>
+                <div>
+                    <SlideHeader/>
                     <div className={styles.slideContent}>
                         {this.props.children}
                     </div>
+                    <SlideFooter/>
                 </div>
             </MuiThemeProvider>
         )
