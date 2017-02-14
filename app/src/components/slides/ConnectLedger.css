@@ -4,11 +4,11 @@
 }
 
 .header {
-
+    font-family: NeutraText, serif;
 }
 
 .subheader {
-
+    color: #b2b2b2;
 }
 
 .loader {
