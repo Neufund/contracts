@@ -20,7 +20,7 @@ class Slide extends React.Component {
     render() {
         return (
             <MuiThemeProvider>
-                <div>
+                <div onClick={this.onClick}>
                     <SlideHeader/>
                     <div className={styles.slideContent}>
                         {this.props.children}
