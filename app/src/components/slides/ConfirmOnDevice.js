@@ -79,13 +79,19 @@ class ConfirmOnDevice extends React.Component {
             );
         } else {
             let txLink = "https://testnet.etherscan.io/tx/" + this.state.txHash;
+            let loader;
+            if (this.state.confirmations) {
+                loader = <LinearProgress mode="determinate" value={this.state.confirmations} max={2}>
+                </LinearProgress>;
+            } else {
+                loader = <LinearProgress mode="indeterminate"/>
+            }
             return (
                 <div>
                     <h2>
                         <a href={txLink} target="_blank">Transaction</a> is being confirmed
                     </h2>
-                    <LinearProgress mode="determinate" value={this.state.confirmations} max={2}>
-                    </LinearProgress>
+                    {loader}
                 </div>
             )
         }
