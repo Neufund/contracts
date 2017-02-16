@@ -9,7 +9,7 @@ import slideWrapper from './SlideWrapper.css'
 class ConnectLedger extends React.Component {
     constructor() {
         super();
-        // this.waitForLedger();
+        this.waitForLedger();
     }
 
     waitForLedger() {
