@@ -24,7 +24,7 @@ class ConnectLedger extends React.Component {
     }
 
     onLedgerConnected() {
-        hashHistory.push("/confirm_data");
+        hashHistory.push("/buy_eth");
     }
 
     render() {
