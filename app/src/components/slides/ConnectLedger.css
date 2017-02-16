@@ -1,20 +1,14 @@
 .logo {
-    padding-top: 10vh;
-    height: 15vh;
+    padding-top: 5vh;
+    height: 20vh;
 }
 
 .header {
     font-family: NeutraText, serif;
 }
 
-.subheader {
-    color: #b2b2b2;
-}
-
-.loader {
-    height: 20vh;
-    width: 20vh;
-    background-image: url('../../../images/loader.svg');
-    background-size: auto 100%;
-    background-repeat: no-repeat;
+.text {
+    margin: 5vh;
+    text-align: left;
+    font-size: x-large;
 }

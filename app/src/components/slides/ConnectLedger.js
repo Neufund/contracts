@@ -3,7 +3,8 @@ import {hashHistory} from 'react-router';
 import Slide from './Slide';
 import styles from './ConnectLedger.css';
 import {toPromise} from '../../utils';
-import Ledger from '../../../images/nano1.png';
+import Ledger from '../../../images/nfledger.png';
+import Arrow from '../Arrow';
 import slideWrapper from './SlideWrapper.css'
 
 class ConnectLedger extends React.Component {
@@ -31,11 +32,21 @@ class ConnectLedger extends React.Component {
         return (
             <Slide>
                 <div className={slideWrapper.wrapper}>
+
+                    <h1 className={styles.header}>YOUR NEUFUND LEDGER</h1>
+                    <div>
+                        <div className={styles.text}>
+                            Your connected Neufund ledger,
+                            will act as an authentication device for your account.
+                        </div>
+                        <div className={styles.text}>
+                            It is required for you to logon to the platform.
+                            The ledger will also act as a digital signature
+                            for signing transactions like investing in proposals
+                            and casting votes
+                        </div>
+                    </div>
                     <img src={Ledger} alt="Ledger" className={styles.logo}/>
-                    <h1 className={styles.header}>Please connect your hardware wallet and open the Ethereum app to
-                        authorize your log on.</h1>
-                    <h3 className={styles.subheader}>Restricted to only pre-ICO investors</h3>
-                    <div className={styles.loader}></div>
                 </div>
             </Slide>
         );
