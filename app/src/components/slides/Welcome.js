@@ -2,7 +2,7 @@ import React from 'react';
 import Slide from './Slide';
 import styles from './Welcome.css'
 import slideWrapper from './SlideWrapper.css'
-import button from '../Button.css';
+import Arrow from '../Arrow';
 import {Link} from 'react-router';
 
 class Welcome extends React.Component {
@@ -23,9 +23,7 @@ class Welcome extends React.Component {
                         the Support page
                     </h3>
                     <Link to="/more_info">
-                        <button className={button.btn}>
-                            Let's go!
-                        </button>
+                        <Arrow/>
                     </Link>
                 </div>
             </Slide>

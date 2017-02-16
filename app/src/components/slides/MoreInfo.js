@@ -2,6 +2,7 @@ import React from 'react';
 import Slide from './Slide';
 import styles from './MoreInfo.css';
 import slideWrapper from './SlideWrapper.css'
+import Arrow from '../Arrow';
 import button from '../Button.css';
 import {Link} from 'react-router';
 
@@ -20,9 +21,7 @@ class MoreInfo extends React.Component {
                         <li>Until when can they invest?</li>
                     </ul>
                     <Link to="/connect_ledger">
-                        <button className={button.btn}>
-                            Got it
-                        </button>
+                        <Arrow/>
                     </Link>
                 </div>
             </Slide>

@@ -1,0 +1,8 @@
+.arrow {
+    margin-top: 10vh;
+    height: 5vh;
+    width: 5vh;
+    border-bottom: solid 3px lightgray;
+    border-right: solid 3px lightgray;
+    transform: rotate(45deg);
+}
