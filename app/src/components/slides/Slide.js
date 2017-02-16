@@ -5,31 +5,24 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SlideFooter from './SlideFooter';
 import SlideHeader from './SlideHeader';
 
-class Slide extends React.Component {
-    constructor(props) {
-        super(props);
-        this.onClick = this.onClick.bind(this);
-    }
-
-    onClick() {
-        if (this.props.linkTo) {
-            hashHistory.push(this.props.linkTo);
+const Slide = ({linkTo, children}) => {
+    const onClick = ()=> {
+        if (linkTo) {
+            hashHistory.push(linkTo);
         }
-    }
+    };
 
-    render() {
-        return (
-            <MuiThemeProvider>
-                <div onClick={this.onClick}>
-                    <SlideHeader/>
-                    <div className={styles.slideContent}>
-                        {this.props.children}
-                    </div>
-                    <SlideFooter/>
+    return (
+        <MuiThemeProvider>
+            <div onClick={onClick}>
+                <SlideHeader/>
+                <div className={styles.slideContent}>
+                    {children}
                 </div>
-            </MuiThemeProvider>
-        )
-    }
-}
+                <SlideFooter/>
+            </div>
+        </MuiThemeProvider>
+    )
+};
 
 export default Slide;

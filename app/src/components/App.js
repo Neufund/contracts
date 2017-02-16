@@ -13,26 +13,24 @@ import ConfirmTransaction from './slides/ConfirmTransaction';
 import ConfirmOnDevice from './slides/ConfirmOnDevice';
 import Success from './slides/Success';
 
-class App extends React.Component {
-    render() {
-        return (
-            <div className={styles.app}>
-                <Router history={hashHistory}>
-                    <Route path="/" component={Index}/>
-                    <Route path="/welcome" component={Welcome}/>
-                    <Route path="/more_info" component={MoreInfo}/>
-                    <Route path="/connect_ledger" component={ConnectLedger}/>
-                    <Route path="/confirm_data" component={ConfirmData}/>
-                    <Route path="/buy_eth" component={BuyEth}/>
-                    <Route path="/tutorial" component={Tutorial}/>
-                    <Route path="/buy_tokens" component={BuyTokens}/>
-                    <Route path="/confirm_transaction" component={ConfirmTransaction}/>
-                    <Route path="/confirm_on_device" component={ConfirmOnDevice}/>
-                    <Route path="/success" component={Success}/>
-                </Router>
-            </div>
-        )
-    }
-}
+const App = () => {
+    return (
+        <div className={styles.app}>
+            <Router history={hashHistory}>
+                <Route path="/" component={Index}/>
+                <Route path="/welcome" component={Welcome}/>
+                <Route path="/more_info" component={MoreInfo}/>
+                <Route path="/connect_ledger" component={ConnectLedger}/>
+                <Route path="/confirm_data" component={ConfirmData}/>
+                <Route path="/buy_eth" component={BuyEth}/>
+                <Route path="/tutorial" component={Tutorial}/>
+                <Route path="/buy_tokens" component={BuyTokens}/>
+                <Route path="/confirm_transaction" component={ConfirmTransaction}/>
+                <Route path="/confirm_on_device" component={ConfirmOnDevice}/>
+                <Route path="/success" component={Success}/>
+            </Router>
+        </div>
+    )
+};
 
 export default App;
