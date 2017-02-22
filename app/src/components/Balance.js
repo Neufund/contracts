@@ -1,7 +1,5 @@
 import React from 'react';
 import styles from './Balance.css';
-import ETHLogo from '../../images/ETHlogo.png';
-import NMKLogo from '../../images/NMKlogo.png';
 import web3 from '../initWeb3';
 import getICOContract from '../ICO';
 import {toPromise, makeCancelable} from '../utils';
@@ -16,7 +14,7 @@ class Balance extends React.Component {
     constructor() {
         super();
         this.state = {
-            balance: "..."
+            balance: "42"
         };
     }
 
@@ -27,7 +25,7 @@ class Balance extends React.Component {
             let block = await toPromise(web3.eth.getBlock, "latest");
             this.fetchBalance();
         } else {
-            hashHistory.push("/connect_ledger");
+            // hashHistory.push("/connect_ledger");
         }
     }
 
@@ -61,10 +59,8 @@ class Balance extends React.Component {
     }
 
     render() {
-        let logo = this.props.of === "ETH" ? ETHLogo : NMKLogo;
         return (
             <div className={styles.balance}>
-                <img src={logo} alt={this.props.of}/>
                 <div><span>{this.state.balance}</span></div>
                 {this.props.children}
             </div>

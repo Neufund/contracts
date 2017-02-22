@@ -2503,14 +2503,14 @@ ethereumjs-testrpc@^3.0.3:
     web3-provider-engine "~8.1.0"
     yargs "~3.29.0"
 
-ethereumjs-tx@1.1.2:
+ethereumjs-tx@1.1.2, ethereumjs-tx@^1.0.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/ethereumjs-tx/-/ethereumjs-tx-1.1.2.tgz#c151477c6205d1860600e29108c3eacae97e29fa"
   dependencies:
     ethereum-common "^0.0.17"
     ethereumjs-util "^4.5.0"
 
-ethereumjs-tx@^1.0.0, ethereumjs-tx@^1.1.0, ethereumjs-tx@^1.2.0, ethereumjs-tx@^1.2.2:
+ethereumjs-tx@^1.1.0, ethereumjs-tx@^1.2.0, ethereumjs-tx@^1.2.2:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/ethereumjs-tx/-/ethereumjs-tx-1.2.5.tgz#ed36d7ffeb97bc889c61eef1ab76f47a613d8286"
   dependencies:
@@ -2533,6 +2533,17 @@ ethereumjs-util@^5.0.0, ethereumjs-util@^5.0.1:
   dependencies:
     bn.js "^4.8.0"
     create-hash "^1.1.2"
+    keccak "^1.0.2"
+    rlp "^2.0.0"
+    secp256k1 "^3.0.1"
+
+ethereumjs-util@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/ethereumjs-util/-/ethereumjs-util-5.1.1.tgz#122fb38dea747dc62b3aebfc365d1bd48be4b73e"
+  dependencies:
+    bn.js "^4.8.0"
+    create-hash "^1.1.2"
+    ethjs-util "^0.1.3"
     keccak "^1.0.2"
     rlp "^2.0.0"
     secp256k1 "^3.0.1"
@@ -2584,6 +2595,13 @@ ethjs-abi@^0.1.8:
     bn.js "4.11.6"
     js-sha3 "0.5.5"
     number-to-bn "1.7.0"
+
+ethjs-util@^0.1.3:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/ethjs-util/-/ethjs-util-0.1.4.tgz#1c8b6879257444ef4d3f3fbbac2ded12cd997d93"
+  dependencies:
+    is-hex-prefixed "1.0.0"
+    strip-hex-prefix "1.0.0"
 
 ethpm-registry@0.0.8:
   version "0.0.8"
@@ -4204,12 +4222,13 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
-ledger-wallet-provider@^1.5.3:
-  version "1.5.3"
-  resolved "https://registry.yarnpkg.com/ledger-wallet-provider/-/ledger-wallet-provider-1.5.3.tgz#31d4b15aae9b3724f7ffb332c8b1538446dddcd2"
+ledger-wallet-provider@^1.6.4:
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/ledger-wallet-provider/-/ledger-wallet-provider-1.6.4.tgz#891ca3703becefde15fcf1eab599fac2315cd46d"
   dependencies:
     ethereumjs-tx "^1.2.2"
     u2f-api "0.0.9"
+    web3-provider-engine "^9.1.0"
 
 left-pad@^1.1.1, left-pad@^1.1.3:
   version "1.1.3"
@@ -7835,6 +7854,25 @@ web3-provider-engine@^8.0.3, "web3-provider-engine@git://github.com/Neufund/prov
     ethereumjs-block "^1.2.2"
     ethereumjs-tx "^1.2.0"
     ethereumjs-util "^5.0.1"
+    ethereumjs-vm "^2.0.2"
+    isomorphic-fetch "^2.2.0"
+    request "^2.67.0"
+    semaphore "^1.0.3"
+    solc "^0.4.2"
+    tape "^4.4.0"
+    web3 "^0.16.0"
+    xhr "^2.2.0"
+    xtend "^4.0.1"
+
+web3-provider-engine@^9.1.0:
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/web3-provider-engine/-/web3-provider-engine-9.1.0.tgz#55236862ce070a9b5b9a7cbc40a4553153dc0c27"
+  dependencies:
+    async "^2.1.2"
+    clone "^2.0.0"
+    ethereumjs-block "^1.2.2"
+    ethereumjs-tx "^1.2.0"
+    ethereumjs-util "^5.1.1"
     ethereumjs-vm "^2.0.2"
     isomorphic-fetch "^2.2.0"
     request "^2.67.0"

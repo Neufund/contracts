@@ -1,10 +1,10 @@
 .btn {
-    margin-top: 2vh;
     box-sizing: border-box;
     font-size: larger;
     font-family: Adam, serif;
     width: 100%;
-    background-color: #eaed32;
+    background-color: #f0f0f0;
     border-radius: 2vh;
-    border: 2px solid #999c24;
+    border: 0;
+    min-width: 5vw;
 }

@@ -1,24 +1,17 @@
 .balance {
-    margin: 1vh 4vh 0 4vh;
     display: flex;
-    flex-direction: column;
-    padding-bottom: 18vh;
-}
-
-.balance > img {
-    width: 12vh;
-    height: auto;
+    justify-content: space-between;
+    height: 8.5vh;
+    width: 20vw;
+    align-items: center;
 }
 
 .balance > div {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 1vh;
-    box-shadow: 0 0 5px #95B6FF;
-    border: 1px #95B6FF solid;
 }
 .balance > div > span {
     line-height: 5vh;
-    font-family: Suissnord;
+    font-family: Suissnord, serif;
 }

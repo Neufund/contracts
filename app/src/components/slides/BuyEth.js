@@ -10,9 +10,17 @@ const BuyEth = () => {
     return (
         <Slide>
             <div className={slideWrapper.wrapper}>
-                <h1>Your NeuFund wallet has been successfully setup.</h1>
-                <h2>We will proceed with getting and storing some ETH which are then will be used to purchase
-                    Neumarks.</h2>
+                <h1 className={styles.header}>YOUR NEUFUND WALLET</h1>
+                <div className={styles.text}>
+                    Your Neufund wallet is where your ETH and NMK are stored.
+                    <br/>
+                    ETH is a crypto-asset
+                    and the primary coin that is used to
+                    invest on the platform.
+                    <br/>
+                    NMKs, Neufund's token and in the future Startup Tokens,
+                    equivalent to equity in ventures, can be purchased using ETH.
+                </div>
                 <div className={styles.details}>
                     <Balance of="ETH">
                         <Link to="/tutorial">

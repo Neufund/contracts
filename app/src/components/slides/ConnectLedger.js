@@ -20,6 +20,7 @@ class ConnectLedger extends React.Component {
                 this.onLedgerConnected()
             })
             .catch((error)=> {
+                console.log(error);
                 setTimeout(::this.waitForLedger, 500);
             })
     }

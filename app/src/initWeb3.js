@@ -7,11 +7,8 @@ var initWeb3 = function () {
         console.warn("No web3 detected. Using infura.");
         const NODE_URL = 'https://ropsten.infura.io/c1GeHOZ7ipPvjO7nDP7l';
 
-        let LedgerWalletProvider = require('ledger-wallet-provider');
-        let HookedWalletSubprovider = require('web3-provider-engine/subproviders/hooked-wallet.js');
-        let walletSubProvider = new LedgerWalletProvider();
-        let hookedWalletSubprovider = new HookedWalletSubprovider(walletSubProvider);
-        window.walletSubProvider = walletSubProvider;
+        let LedgerWalletProviderFactory = require('ledger-wallet-provider').default;
+        let hookedWalletSubprovider = LedgerWalletProviderFactory();
         web3Polyfill(window)(NODE_URL, hookedWalletSubprovider);
     }
     return window.web3;
