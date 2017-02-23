@@ -1,5 +1,5 @@
 .app {
     font-family: NeutraText;
-    background: linear-gradient(to right, #030030, #030030, #030030, #8DA1CF);
+    background: linear-gradient(to right, #030030 0, #030030 65%, #8DA1CF 100%);
     height: 100vh;
 }
