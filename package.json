@@ -27,7 +27,7 @@
   "homepage": "https://github.com/Neufund/Contracts#readme",
   "dependencies": {
     "ethereumjs-testrpc": "^3.0.3",
-    "ledger-wallet-provider": "^1.6.4",
+    "ledger-wallet-provider": "^1.6.5",
     "material-ui": "^0.16.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
