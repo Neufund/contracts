@@ -1,7 +1,7 @@
 pragma solidity ^0.4.9;
 
 import "../lib/Owned.sol";
-import "./Watchdog.sol";
+import "./WatchdogInterface.sol";
 
 //    W A T C H D O G   S E R V I C E
 
@@ -10,7 +10,7 @@ contract WatchedWallet is Owned {
   function WatchedWallet(address owner, address watchdog) {
   }
 
-  WatchDog watchdog;
+  WatchdogInterface watchdog;
   uint min_delay;
   uint max_delay;
 
