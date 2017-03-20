@@ -52,9 +52,6 @@ contract EuroToken is Owned, ERC20Token {
   // TODO function totalSupply() constant returns (uint256 totalSupply);
   function balanceOf(address _owner) constant returns (uint256 balance);
   function transfer(address _to, uint256 _value) returns (bool success);
-  event Transfer(address indexed _from, address indexed _to, uint256 _value);
-  // from == 0: deposit
-  // to == 0: withdraw
 
   // Advanced ERC20
   function transferFrom(address _from, address _to, uint256 _value)
@@ -62,8 +59,14 @@ contract EuroToken is Owned, ERC20Token {
   function approve(address _spender, uint256 _value) returns (bool success);
   function allowance(address _owner, address _spender)
     constant returns (uint256 remaining);
-  event Approval(address indexed _owner,
-    address indexed _spender, uint256 _value);
+
+  // NOTE events are declared in ERC20Token
+  // event Approval(address indexed _owner,
+  //  address indexed _spender, uint256 _value);
+  // event Transfer(address indexed _from, address indexed _to, uint256 _value);
+  // from == 0: deposit
+  // to == 0: withdraw
+
 
   // ERC22 metadata
   string symbol = "NEURT";

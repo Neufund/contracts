@@ -6,7 +6,7 @@ import "../neubank/EuroToken.sol";
 import "./LimitedPartnerAgreement.sol";
 import "./NeuMark.sol";
 
-contract ICO is Owned {
+contract NeufundICO is Owned {
 
   // Referenced contracts
   KYCService kyc;
@@ -24,13 +24,13 @@ contract ICO is Owned {
   }
 
   // ICO Parameters
-  uint256 success_mininmum = 5e6;
-  uint256 success_maximum = 15e6;
+  uint256 success_mininmum = 5000000;
+  uint256 success_maximum = 15000000;
   uint256 ticket_minimum = 100;
-  uint256 ticket_maximum = 1e6;
+  uint256 ticket_maximum = 1000000;
   uint256 nmk_per_eurt = 1;
   // ufixed0x256 discount_amount = ufixed0x256(0.05);
-  uint256 discount_treshold = 5e5;
+  uint256 discount_treshold = 500000;
   uint256 ico_start; // TBD
   uint256 ico_duration = 30 days;
   uint256 anchor_pledge_expiry = 23 days;

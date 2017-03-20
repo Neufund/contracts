@@ -4,7 +4,7 @@ import "../lib/Owned.sol";
 //    F A U C E T   S E R V I C E
 
 // Smart contract to keep accounts funded with enough eth to pay for transactions
-contract Faucet {
+contract FaucetInterface {
 
   // Contract state
   // * Contract owner / manager = PlatformGovernance(address)

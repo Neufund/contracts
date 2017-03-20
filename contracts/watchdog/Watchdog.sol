@@ -9,7 +9,7 @@ contract Proxy {
 }
 
 
-contract WatchDog is Owned, Proxy {
+contract Watchdog is Owned, Proxy {
   WhitelistInterface whitelist;
   address operator; // API account
 
