@@ -1,8 +1,8 @@
 
 contract LimitedPartnerContract {
 
-  string contractUrl   = …;
-  bytes32 contractHash = …;
+  string contractUrl;
+  bytes32 contractHash;
 
   mapping (address => bool) signatories;
 

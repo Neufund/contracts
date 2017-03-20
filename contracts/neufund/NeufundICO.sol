@@ -1,13 +1,19 @@
+pragma solidity ^0.4.9;
 
-contract ICO {
+import "../lib/Owned.sol";
+import "../kyc/KYCService.sol";
+import "../neubank/EuroToken.sol";
+import "./LimitedPartnerAgreement.sol";
+import "./NeuMark.sol";
+
+contract ICO is Owned {
 
   // Referenced contracts
-  owner = ...?
-  kyc = KYCService(…)
-  lpa = LimitedPartnerContract(…)
-  euros = EuroToken(…)
-  neumark = NeuMark(…)
-  beneficiary = ...? (owner?)
+  KYCService kyc;
+  LimitedPartnerAgreement lpa;
+  EuroToken euros;
+  NeuMark neumark;
+  address beneficiary; // owner?
 
   // Anchor investors have reserved Neumarks that they pledged to buy
   // On failure to buy, and when the publicly available Neumarks run out,
@@ -23,9 +29,9 @@ contract ICO {
   uint256 ticket_minimum = 100;
   uint256 ticket_maximum = 1e6;
   uint256 nmk_per_eurt = 1;
-  uint256 discount_amount = 5%;
+  uint256 discount_amount = 0.05;
   uint256 discount_treshold = 5e5;
-  uint256 ico_start = …date…;
+  uint256 ico_start; // TBD
   uint256 ico_duration = 30 days;
   uint256 anchor_pledge_expiry = 23 days;
   uint256 wire_transfer_grace_period = 14 days;
@@ -39,7 +45,7 @@ contract ICO {
   // ICO state
   uint256 total_raised;
 
-  
+
 
   // Participants need to have their KYC and the LPA
 

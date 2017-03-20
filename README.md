@@ -9,12 +9,17 @@ WIP: Some basic smart contracts
 git clone https://github.com/Neufund/Contracts.git
 cd Contracts
 npm install
+npm run build
 npm run testrpc &
 npm run test
 npm run serve
 ```
-
 Then browse to http://localhost:8080/
+
+*Using solc*
+```
+solc ./contracts/*.sol ./contracts/*/*.sol
+```
 
 # Repositories of contracts
 
@@ -53,7 +58,6 @@ Then browse to http://localhost:8080/
 The overall design is Multi-contract & Multi-state. Contracts have owners and
 owners can update references to other contracts.
 
-[ ] TODO: For long-lived contracts a Hub and Spoke model is used.
 
 * https://ethereum.stackexchange.com/questions/8551/methodological-security-review-of-a-smart-contract/8593#8593
 * https://ethereum.stackexchange.com/questions/6204/writing-secure-smart-contracts-in-solidity

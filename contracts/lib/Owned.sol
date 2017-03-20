@@ -1,4 +1,6 @@
-pramga solidity ^0.4.9;
+pragma solidity ^0.4.9;
+
+import "../lib/ERC20Token.sol";
 
 contract Owned {
   address owner;
@@ -32,15 +34,15 @@ contract Owned {
   }
 
   function transfer_ownership(address new_owner) owner_only {
-    old_owner = owner;
+    address old_owner = owner;
     owner = new_owner;
     Transfered(old_owner, new_owner);
   }
   event Transfered(address old_owner, address new_owner);
 
-  function terminate(address tokens[]) owner_only non_rentrant {
+  function terminate(address[] tokens) owner_only non_rentrant {
     // Transfer tokens to owner (TODO: error handling)
-    for(uint i = 0; i < tokens.length; x++)) {
+    for(uint i = 0; i < tokens.length; i++) {
       ERC20Token token = ERC20Token(tokens[i]);
       uint256 balance = token.balanceOf(this);
       token.transfer(owner, balance);
@@ -48,7 +50,5 @@ contract Owned {
 
     // Transfer Eth to owner and terminate contract
     selfdestruct(owner);
-    Terminated(owner);
   }
-  event Terminated(owner);
 }

@@ -1,7 +1,9 @@
+pragma solidity ^0.4.9;
 
-contract EuroTokenClients is EuroTokensClientsInterface {
-  // Contract ownership and lifecycle stuff
-  owner = …address… // only owner can change
+import "../lib/Owned.sol";
+import "./ClientRegisteryInterface.sol";
+
+contract ClientRegistery is Owned, ClientRegisteryInterface {
 
   mapping (address => bool) clients;
 

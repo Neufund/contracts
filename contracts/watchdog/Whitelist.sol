@@ -1,10 +1,13 @@
+pragma solidity ^0.4.9;
 
-contract Whitelist {
+import "./WhitelistInterface.sol";
+
+contract Whitelist is WhitelistInterface {
   // Watchdog whitelist. Exempts certain TXs from delays.
-  list whiteListed {
-    address address,   // Target address
-    uint256 maxvalue,  // Maximum Ether value transfered (Note: does not handle token transfers!)
-    bytes data_prefix  // Only txs with _data *starting* with these bytes are whitelisted
+  struct whitelisted {
+    address target;    // Target address
+    uint256 maxvalue;  // Maximum Ether value transfered (Note: does not handle token transfers!)
+    bytes data_prefix; // Only txs with _data *starting* with these bytes are whitelisted
                        // This allows easy whitelisting of specific functions on a contract
                        // by filtering on the first four bytes. Consequitive bytes filter successive
                        // arguments to the function.
@@ -17,9 +20,17 @@ contract Whitelist {
                        // }
   // TODO: It would make sense to add specific whitelisting support for ERC20 contracts.
   // TODO: If you whitelist a call that can call any function, then you effectively whitelisted everything! Be carefull what you whitelist.
-  addWhiteListed(…) watchdog_only
-  removeWhiteListed(…) watchdog_only
-  event WhiteListUpdated()
+  }
+  
+  whitelisted[] entries;
+
+  modifier watchdog_only() {
+    _;
+  }
+
+  function addWhiteListed(address addr) watchdog_only();
+  function removeWhiteListed(uint index) watchdog_only();
+  event WhiteListUpdated();
 
   function is_white_listed(address _to, uint _value, bytes _data) returns (bool)
   {

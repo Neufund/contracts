@@ -2,5 +2,5 @@
 
 contract Proposition {
 
-  function delegateVote() only_delegates;
+  function delegateVote() only_delegates();
 }

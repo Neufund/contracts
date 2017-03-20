@@ -1,11 +1,18 @@
+pragma solidity ^0.4.9;
 
+import "../lib/Owned.sol";
 
 //    N A N O   P R O V I S I O N I N G
+contract NeukeyNotary is Owned {
 
-contract NeukeyNotary {
+  // owner = PlatformGovernance(address)
+  address notary;
 
-  owner = PlatformGovernance(address)
-  notary = …address…;
+  modifier notary_only() {
+    if(msg.sender == notary) {
+      _;
+    }
+  }
 
   mapping (address => bool) deprecated;
   mapping (address => uint) registery;
@@ -14,10 +21,10 @@ contract NeukeyNotary {
     uint device_id;
     address pub_key;
     uint owner; //
-  };
+  }
 
-  function register(address nanoPubKey, uint device_id) notary_only;
-  function send_to_owner(uint device_id, uint owner) notary_only;
+  function register(address nanoPubKey, uint device_id) notary_only();
+  function send_to_owner(uint device_id, uint owner) notary_only();
   function deprecate(address nanoPubKey);
 
   event DeviceRegistered(address nanoPubKey, uint device_id);
