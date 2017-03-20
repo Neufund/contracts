@@ -11,7 +11,10 @@ cd Contracts
 npm install
 npm run testrpc &
 npm run test
+npm run serve
 ```
+
+Then browse to http://localhost:8080/
 
 # Repositories of contracts
 

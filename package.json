@@ -67,6 +67,7 @@
     "json-loader": "^0.5.4",
     "style-loader": "^0.14.1",
     "truffle-contract": "^1.1.6",
+    "truffle-solidity-loader": "0.0.8",
     "url-loader": "^0.5.7",
     "web3": "^0.18.2",
     "webpack": "^2.2.1",
