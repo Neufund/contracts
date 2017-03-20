@@ -3,7 +3,7 @@ pragma solidity ^0.4.8;
 import "../lib/ERC20Token.sol";
 
 contract Owned {
-  address owner;
+  address public owner;
 
   // Disallow direct send
   // NOTE: Ether can still be send to this contract
