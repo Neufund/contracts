@@ -2,6 +2,8 @@
 
 * [x] Solidity code linting
 * [x] Solve syntax errors in drafts
+* [x] Hot reload for JS
+* [ ] Hot reload for Solidity
 * [ ] TODO: For long-lived contracts a Hub and Spoke model is used.
 * [ ] ICO for Neukey, Web3, 2FA
 * [ ] ICO for Eth directly to address, token only

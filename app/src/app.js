@@ -5,12 +5,16 @@ import App from './components/App.js'
 import '!style-loader!css-loader!./GlobalStyles.css'
 
 window.addEventListener('load', function () {
-  render(<AppContainer component={App} />, document.getElementById('react'))
+  render(
+    <AppContainer><App /></AppContainer>,
+    document.getElementById('react')
+  )
 })
 if (module.hot) {
   module.hot.accept('./components/App.js', () => {
+    let HotApp = require('./components/App.js').default
     render(
-      <AppContainer component={require('./components/App.js').default} />,
+      <AppContainer><HotApp /></AppContainer>,
       document.getElementById('react')
     )
   })
