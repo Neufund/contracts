@@ -1,9 +1,3 @@
-body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
 @font-face {
     font-family: NeutraText;
     src: url("../fonts/NeutraText-BookAlt.ttf") format('truetype');
@@ -17,4 +11,11 @@ body {
 @font-face {
     font-family: Suissnord;
     src: url("../fonts/Suissnord.otf") format('opentype');
+}
+
+body {
+    font-family: NeutraText;
+    margin: 0;
+    padding: 1em;
+    overflow: hidden;
 }
