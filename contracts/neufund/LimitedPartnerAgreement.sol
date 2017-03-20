@@ -1,5 +1,6 @@
+pragma solidity ^0.4.9;
 
-contract LimitedPartnerContract {
+contract LimitedPartnerAgreement {
 
   string contractUrl;
   bytes32 contractHash;

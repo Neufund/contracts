@@ -29,7 +29,7 @@ contract ICO is Owned {
   uint256 ticket_minimum = 100;
   uint256 ticket_maximum = 1e6;
   uint256 nmk_per_eurt = 1;
-  uint256 discount_amount = 0.05;
+  // ufixed0x256 discount_amount = ufixed0x256(0.05);
   uint256 discount_treshold = 5e5;
   uint256 ico_start; // TBD
   uint256 ico_duration = 30 days;
@@ -38,9 +38,9 @@ contract ICO is Owned {
   anchor_investor[] anchor_investors;
 
   // POST-ICO Neufund parameters
-  uint256 management_fee = 0.0;
-  uint256 liquidation_preference = 1.4;
-  uint256 carried_interest = 0.2;
+  // ufixed0x256 management_fee = 0.0;
+  // ufixed8x248 liquidation_preference = ufixed8x248(1.4);
+  // ufixed0x256 carried_interest = ufixed0x256(0.2);
 
   // ICO state
   uint256 total_raised;

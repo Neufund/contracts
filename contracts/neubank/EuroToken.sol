@@ -35,8 +35,7 @@ contract EuroToken is Owned, ERC20Token {
   }
 
   // Euro tokens are minted when classical EUR is received
-  function deposit(address client, uint256 client) deposit_manager_only {
-    Transfer();
+  function deposit(address client, uint256 amount) deposit_manager_only {
 
 
   }
@@ -50,7 +49,7 @@ contract EuroToken is Owned, ERC20Token {
   // TODO: Some lost their keys, sad, and now demands their euros to be transferred. What?
 
   // Standard ERC20
-  function totalSupply() constant returns (uint256 totalSupply);
+  // TODO function totalSupply() constant returns (uint256 totalSupply);
   function balanceOf(address _owner) constant returns (uint256 balance);
   function transfer(address _to, uint256 _value) returns (bool success);
   event Transfer(address indexed _from, address indexed _to, uint256 _value);

@@ -1,4 +1,4 @@
-pragma solidit ^0.4.9;
+pragma solidity ^0.4.9;
 
 
 import "../lib/Owned.sol";
@@ -11,7 +11,7 @@ contract NeuMark is Owned, ERC20Token {
   address deposit_manager; // only owner can change
 
   // Standard ERC20
-  function totalSupply() constant returns (uint256 totalSupply);
+  // TODO function totalSupply() constant returns (uint256 totalSupply);
   function balanceOf(address _owner) constant returns (uint256 balance);
   function transfer(address _to, uint256 _value) returns (bool success);
   event Transfer(address indexed _from, address indexed _to, uint256 _value);

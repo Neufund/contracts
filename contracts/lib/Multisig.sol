@@ -1,6 +1,6 @@
 pragma solidity ^0.4.9;
 
-contract Multsig {
+contract Multisig {
   // TODO
 
   function execute(address _to, uint _value, bytes _data) returns (bytes32 _id);

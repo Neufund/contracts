@@ -23,6 +23,12 @@ contract WatchedWallet is Owned {
 
   // TODO: execute_white_listed that will query watchdog.is_white_listed.
 
+  modifier watchdog_only() {
+    if(msg.sender == address(watchdog)) {
+      _;
+    }
+  }
+
   // Watchdog direct interface
   function block(bytes32 _id) watchdog_only returns (bool _success);
   function unblock(bytes32 _id) watchdog_only returns (bool _success);
@@ -33,13 +39,14 @@ contract WatchedWallet is Owned {
 
   modifier owner_delayed() {
     // TODO only owner can do, but still needs to be delayed.
+    _;
   }
 
   // Owner indirect interface (these go through delay process)
   function transferOwnership(address) owner_delayed();
   function kill() owner_delayed();
   function setWatchDog(address) owner_delayed();
-  function setDelays(min_delay, max_delay) owner_delayed();
+  function setDelays(uint min_delay, uint max_delay) owner_delayed();
 
   // Incentivized trigger
   function trigger(bytes32 _id);

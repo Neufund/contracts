@@ -22,13 +22,13 @@ contract WatchDog is Owned, Proxy {
   // Factory
   mapping (address => bool) watched;
 
-  event Created(addres owner, address wallet);
+  event Created(address owner, address wallet);
 
   function create(address wallet_owner) owner_only returns (address) {
-    WatchedWallet wallet = new WatchedWallet(wallet_owner, this);
-    watched[wallet] = true;
-    Created(wallet_owner, wallet);
-    return wallet;
+    // WatchedWallet wallet = new WatchedWallet(wallet_owner, this);
+    // watched[wallet] = true;
+    // Created(wallet_owner, wallet);
+    // return wallet;
   }
 
   function is_watched(address wallet) returns (bool) {
