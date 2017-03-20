@@ -1,0 +1,5 @@
+
+
+contract Registery is Owned {
+
+};

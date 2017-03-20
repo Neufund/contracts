@@ -1,0 +1,4 @@
+
+contract NeufundGovernance is LiquidDelegateGovernance {
+
+}
