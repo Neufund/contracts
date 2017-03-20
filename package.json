@@ -8,11 +8,13 @@
   },
   "scripts": {
     "testrpc": "testrpc",
+    "compile": "truffle compile",
     "test": "truffle test",
     "lint": "eslint ./",
     "build": "webpack",
     "dev": "webpack-dev-server --hot --https --open --colors --progress --history-api-fallback",
     "ipfs": "webpack -p && ipfs add -r build | tail -n1 | cut -d' ' -f 2 | xargs ipfs name publish",
+    "serve": "truffle serve",
     "watch": "truffle watch"
   },
   "repository": {
