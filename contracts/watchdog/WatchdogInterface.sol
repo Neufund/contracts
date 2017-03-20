@@ -1,4 +1,4 @@
-pragma solidity ^0.4.9;
+pragma solidity ^0.4.8;
 
 contract WatchdogInterface {
   function is_watched(address wallet) returns (bool);

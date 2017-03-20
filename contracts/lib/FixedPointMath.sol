@@ -1,4 +1,4 @@
-pragma solidity ^0.4.9;
+pragma solidity ^0.4.8;
 
 // See: https://en.wikipedia.org/wiki/Fixed-point_arithmetic
 // See: https://en.wikipedia.org/wiki/Q_(number_format)

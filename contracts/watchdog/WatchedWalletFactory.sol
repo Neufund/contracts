@@ -1,4 +1,4 @@
-pragma solidity ^0.4.9;
+pragma solidity ^0.4.8;
 
 contract WatchedWalletFactory {
   string contract_source; // IPFS hash address

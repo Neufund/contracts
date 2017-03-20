@@ -1,4 +1,4 @@
-pragma solidity ^0.4.9;
+pragma solidity ^0.4.8;
 
 import "../lib/Owned.sol";
 import "../kyc/KYCService.sol";
