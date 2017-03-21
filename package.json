@@ -9,13 +9,11 @@
     "testrpc": "testrpc",
     "compile": "truffle compile",
     "test": "truffle test",
+    "deploy": "truffle migrate --reset",
     "lint": "solium --dir contracts; eslint ./",
     "build": "webpack",
-    "dev": "webpack-dev-server --hot --https --open --colors --progress --history-api-fallback",
     "ipfs": "webpack -p && ipfs add -r build | tail -n1 | cut -d' ' -f 2 | xargs ipfs name publish",
-    "serve": "truffle serve",
-    "watch": "truffle watch",
-    "start": "webpack-dev-server --host 0.0.0.0 --port 3000 --hot --content-base build"
+    "start": "webpack-dev-server --hot --colors --progress --history-api-fallback"
   },
   "repository": {
     "type": "git",

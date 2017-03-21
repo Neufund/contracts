@@ -12,7 +12,8 @@ npm install
 npm run build
 npm run testrpc &
 npm run test
-npm run serve
+npm run deploy
+npm run start
 ```
 Then browse to http://localhost:8080/
 
@@ -45,7 +46,9 @@ solc ./contracts/*.sol ./contracts/*/*.sol
 
 ## Projects
 
+* https://github.com/ethereum/ens
 * https://github.com/melonproject/melon
+* https://github.com/golemfactory/golem-crowdfunding
 * https://github.com/makerdao/maker-otc/blob/master/contracts
 * https://github.com/ConsenSys/gnosis-contracts
 * https://github.com/ConsenSys/singulardtv-contracts
