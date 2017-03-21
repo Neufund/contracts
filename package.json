@@ -2,7 +2,6 @@
   "name": "neufund-contracts",
   "version": "1.0.0",
   "description": "Some basic smart contracts",
-  "main": "server.js",
   "directories": {
     "test": "test"
   },
@@ -16,7 +15,7 @@
     "ipfs": "webpack -p && ipfs add -r build | tail -n1 | cut -d' ' -f 2 | xargs ipfs name publish",
     "serve": "truffle serve",
     "watch": "truffle watch",
-    "start": "node server.js"
+    "start": "webpack-dev-server --host 0.0.0.0 --port 3000 --hot --content-base build"
   },
   "repository": {
     "type": "git",
