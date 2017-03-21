@@ -1,7 +1,7 @@
 pragma solidity ^0.4.8;
 
 import "../lib/Owned.sol";
-import "../kyc/KYCService.sol";
+import "../kyc/KYCRegistery.sol";
 import "../neubank/EuroToken.sol";
 import "./LimitedPartnerAgreement.sol";
 import "./NeuMark.sol";
@@ -9,11 +9,11 @@ import "./NeuMark.sol";
 contract NeufundICO is Owned {
 
   // Referenced contracts
-  KYCService kyc;
+  KYCRegistery kyc;
   LimitedPartnerAgreement lpa;
   EuroToken euros;
   NeuMark neumark;
-  address beneficiary; // owner?
+  address beneficiary; // TODO: Can it go to owner?
 
   // Anchor investors have reserved Neumarks that they pledged to buy
   // On failure to buy, and when the publicly available Neumarks run out,
@@ -24,7 +24,7 @@ contract NeufundICO is Owned {
   }
 
   // ICO Parameters
-  uint256 success_mininmum = 5000000;
+  uint256 public success_minimum = 5000000;
   uint256 success_maximum = 15000000;
   uint256 ticket_minimum = 100;
   uint256 ticket_maximum = 1000000;
@@ -45,7 +45,9 @@ contract NeufundICO is Owned {
   // ICO state
   uint256 total_raised;
 
-
+  function test() returns (uint256 x) {
+    x = 42;
+  }
 
   // Participants need to have their KYC and the LPA
 
