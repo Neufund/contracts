@@ -8,7 +8,9 @@ module.exports = function(deployer) {
     [Registery],
     [KYCRegistery],
     [Faucet],
-    [NeufundICO]
+    [LimitedPartnerAgreement],
+    [EuroToken],
+    [NeuMark],
   ])
 
   // Connect contracts

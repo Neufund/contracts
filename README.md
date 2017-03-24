@@ -46,6 +46,7 @@ solc ./contracts/*.sol ./contracts/*/*.sol
 
 ## Projects
 
+* https://github.com/ethereum/dapp-bin
 * https://github.com/ethereum/ens
 * https://github.com/melonproject/melon
 * https://github.com/golemfactory/golem-crowdfunding
