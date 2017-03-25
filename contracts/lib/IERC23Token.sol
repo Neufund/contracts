@@ -1,12 +1,12 @@
 pragma solidity ^0.4.8;
 
-import "./ERC20BasicInterface.sol";
+import "./IERC20Basic.sol";
 
 /*
  * ERC23 interface
  * see https://github.com/ethereum/EIPs/issues/223
  */
-contract ERC23TokenInterface is ERC20BasicInterface {
+contract IERC23Token is IERC20Basic {
   function transfer(address to, uint value, bytes data)
     public returns (bool success);
 }

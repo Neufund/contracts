@@ -1,13 +1,11 @@
 pragma solidity ^0.4.8;
 
 import "../lib/RentrancyGuard.sol";
-import "../lib/ERC20BasicInterface.sol";
+import "../lib/IERC20Basic.sol";
 
 contract Owned is RentrancyGuard {
 
   address public owner;
-
-
 
   function Owned() {
     owner = msg.sender;
@@ -31,7 +29,7 @@ contract Owned is RentrancyGuard {
   }
   event Transfered(address old_owner, address new_owner);
 
-  function terminate(ERC20BasicInterface[] tokens) external owner_only non_rentrant {
+  function terminate(IERC20Basic[] tokens) external owner_only non_rentrant {
     // Transfer tokens to owner (TODO: error handling)
     for(uint i = 0; i < tokens.length; i++) {
       uint256 balance = tokens[i].balanceOf(this);

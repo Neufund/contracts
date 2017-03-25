@@ -1,15 +1,20 @@
 pragma solidity ^0.4.8;
 
-import "./ERC20TokenInterface.sol";
-import "./ERC22TokenInterface.sol";
-import "./ERC23TokenInterface.sol";
-import "./ERC23ContractInterface.sol";
+import "./IERC20Basic.sol";
+import "./IERC20Token.sol";
+import "./IERC20CallToken.sol";
+import "./IERC20CallContract.sol";
+import "./IERC22Token.sol";
+import "./IERC23Token.sol";
+import "./IERC23Contract.sol";
 import "../lib/SafeMath.sol";
 
 contract BaseToken is
-  ERC20TokenInterface,
-  ERC22TokenInterface,
-  ERC23TokenInterface,
+  IERC20Basic,
+  IERC20Token,
+  IERC20CallToken,
+  IERC22Token,
+  IERC23Token,
   SafeMath
 {
   uint public totalSupply;
@@ -31,55 +36,49 @@ contract BaseToken is
     address from, address to, uint value, bytes data) private
   {
     if(isContract(to)) {
-      ERC23ContractInterface(to)
+      IERC23Contract(to)
         .tokenFallback(msg.sender, value, data);
     }
   }
 
   function balanceOf(address _owner)
-    constant returns (uint balance)
+    public constant returns (uint balance)
   {
     return balances[_owner];
   }
 
-  function transferInternal(address _from, address _to, uint _value)
-    private
-  {
-    balances[_from] = safeSub(balances[_from], _value);
-    balances[_to] = safeAdd(balances[_to], _value);
-    Transfer(_from, _to, _value);
-  }
-
-  function transferFrom(address _from, address _to, uint _value)
-    returns (bool success)
-  {
-    var _allowance = allowed[_from][msg.sender];
-
-    // Check is not needed because safeSub(_allowance, _value) will already throw if this condition is not met
-    // if (_value > _allowance) throw;
-
-    transferInternal(_from, _to, _value);
-    allowed[_from][msg.sender] = safeSub(_allowance, _value);
-    notifyReceiver(_from, _to, _value, "");
-    // NOTE: We use from and not msg.sender. allowances are
-    //       about trading on-behalf-off.
-    return true;
-  }
-
   function approve(address _spender, uint _value)
-    returns (bool success)
+    public returns (bool success)
   {
     allowed[msg.sender][_spender] = _value;
     Approval(msg.sender, _spender, _value);
     return true;
   }
 
+  function approveAndCall(address _spender, uint256 _value, bytes _data)
+    public returns (bool success)
+  {
+    approve(_spender, _value);
+    IERC20CallContract(_spender)
+      .receiveApproval(msg.sender, _value, this, _data);
+    return true;
+  }
+
   function allowance(address _owner, address _spender)
-    constant returns (uint remaining)
+    public constant returns (uint remaining)
   {
     return allowed[_owner][_spender];
   }
 
+  function transferInternal(address _from, address _to, uint _value)
+    private
+  {
+    assert(_to != 0x0);
+    assert(_to != address(this));
+    balances[_from] = safeSub(balances[_from], _value);
+    balances[_to] = safeAdd(balances[_to], _value);
+    Transfer(_from, _to, _value);
+  }
 
   function transfer(address to, uint value)
     public returns (bool ok)
@@ -95,8 +94,25 @@ contract BaseToken is
     notifyReceiver(msg.sender, to, value, data);
   }
 
+  function transferFrom(address _from, address _to, uint _value)
+    public returns (bool success)
+  {
+    return transferFrom(_from, _to, _value, "");
+  }
+
+  function transferFrom(address _from, address _to, uint _value, bytes _data)
+    public returns (bool success)
+  {
+    var _allowance = allowed[_from][msg.sender];
+    transferInternal(_from, _to, _value);
+    allowed[_from][msg.sender] = safeSub(_allowance, _value);
+    notifyReceiver(_from, _to, _value, _data);
+    return true;
+  }
+
   // Internal, for subclasses to use
   function mint(address to, uint value) internal {
+    assert(to != 0);
     totalSupply = safeAdd(totalSupply, value);
     balances[to] = safeAdd(balances[to], value);
     notifyReceiver(0, to, value, "");
