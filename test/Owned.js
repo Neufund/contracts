@@ -1,3 +1,4 @@
+/* global artifacts contract it assert web3 */
 const OwnedHelper = artifacts.require('./helpers/OwnedHelper.sol')
 
 contract('Owned', function (accounts) {

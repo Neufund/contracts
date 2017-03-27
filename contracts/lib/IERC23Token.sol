@@ -9,4 +9,7 @@ import "./IERC20Basic.sol";
 contract IERC23Token is IERC20Basic {
   function transfer(address to, uint value, bytes data)
     public returns (bool success);
+
+  function transferFrom(address _from, address _to, uint _value, bytes _data)
+    public returns (bool success);
 }

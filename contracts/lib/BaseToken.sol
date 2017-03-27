@@ -17,12 +17,28 @@ contract BaseToken is
   IERC23Token,
   SafeMath
 {
-  uint public totalSupply;
-  string public symbol;
-  string public name;
-  uint256 public decimals;
+  uint256 private total;
+  string private tokenSymbol;
+  string private tokenName;
+  uint256 private tokenDecimals;
   mapping (address => uint256) private balances;
   mapping (address => mapping (address => uint)) private allowed;
+
+  function totalSupply() constant public returns (uint256) {
+    return total;
+  }
+
+  function symbol() public constant returns (string) {
+    return tokenSymbol;
+  }
+
+  function name() public constant returns (string) {
+    return tokenName;
+  }
+
+  function decimals() public constant returns (uint256) {
+    return tokenDecimals;
+  }
 
   function isContract(address client)
     private constant returns (bool result)
@@ -50,6 +66,7 @@ contract BaseToken is
   function approve(address _spender, uint _value)
     public returns (bool success)
   {
+    // TODO Race condition compare-and-swap ?
     allowed[msg.sender][_spender] = _value;
     Approval(msg.sender, _spender, _value);
     return true;
@@ -113,19 +130,19 @@ contract BaseToken is
   // Internal, for subclasses to use
   function mint(address to, uint value) internal {
     assert(to != 0);
-    totalSupply = safeAdd(totalSupply, value);
+    total = safeAdd(total, value);
     balances[to] = safeAdd(balances[to], value);
     notifyReceiver(0, to, value, "");
   }
 
   function burn(address from, uint value) internal {
-    totalSupply = safeSub(totalSupply, value);
+    total = safeSub(total, value);
     balances[from] = safeSub(balances[from], value);
   }
 
   function BaseToken(string symbol_, string name_, uint256 decimals_) {
-    symbol = symbol_;
-    name = name_;
-    decimals = decimals_;
+    tokenSymbol = symbol_;
+    tokenName = name_;
+    tokenDecimals = decimals_;
   }
 }
