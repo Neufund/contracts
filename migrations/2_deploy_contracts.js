@@ -13,8 +13,8 @@ const NeufundICO = artifacts.require('NeufundICO')
 module.exports = async (deployer, network, accounts) => {
   // Utility function that wraps deployer.deploy,
   // but returns the singleton instance
-  let deploy = async Contract => {
-    await deployer.deploy(Contract)
+  let deploy = async (Contract, ...args) => {
+    await deployer.deploy(Contract, ...args)
     return await Contract.deployed()
   }
 
