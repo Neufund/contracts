@@ -26,6 +26,16 @@ module.exports = async (deployer, network, accounts) => {
   let trader = owner
   let depositManager = owner
 
+  // Log role assignment
+  console.log('\nRole assignemnt:')
+  console.log(' * owner: \t' + owner)
+  console.log(' * faucetAdmin: \t' + faucetAdmin)
+  console.log(' * kycValidator: \t' + kycValidator)
+  console.log(' * notary: \t' + notary)
+  console.log(' * trader: \t' + trader)
+  console.log(' * depositManager: \t' + depositManager)
+  console.log('')
+
   // Deploy contracts
   let registery = await deploy(Registery)
   let faucet = await deploy(Faucet)
