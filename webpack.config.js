@@ -8,11 +8,11 @@ module.exports = {
     'webpack/hot/only-dev-server',
     'babel-polyfill',
     'react-hot-loader/patch',
-    './app/src/app.js'
+    './app/src/index.js'
   ],
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'app.js'
+    filename: 'index.js'
   },
   plugins: [
     // Copy our app's index.html to the build folder.
