@@ -1,9 +1,39 @@
 pragma solidity ^0.4.8;
 
-//    E T H - E U R T   T R A D E R
+import "./IEthEurTrader.sol";
+import "../lib/Owned.sol";
+import "../neubank/EuroToken.sol";
 
-contract EthEurTrader {
+contract EthEurTrader is IEthEurTrader, Owned {
 
-  // https://github.com/ConsenSys/Stabl-API
+  EuroToken euroToken;
+  address trader;
 
+  modifier trader_only() {
+    if(msg.sender == trader) {
+      _;
+    }
+  }
+
+  function EthEurTrader(EuroToken euroToken_)
+  {
+    euroToken = euroToken_;
+  }
+
+  function set_trader(address trader_) owner_only {
+    trader = trader_;
+  }
+
+  /// @dev We have only 2300 gas when called with send
+  function () external payable {
+    EthReceived(msg.sender, msg.value);
+  }
+
+  function traded(address client, uint256 amount) trader_only {
+    euroToken.transfer(client, amount);
+  }
+
+  event EthReceived(address client, uint256 amount);
+  // TODO event PoolLow();
+  // TODO refunds
 }

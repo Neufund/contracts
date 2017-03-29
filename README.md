@@ -1,5 +1,5 @@
 # Contracts [![Build Status](https://travis-ci.org/Neufund/Contracts.svg?branch=master)](https://travis-ci.org/Neufund/Contracts)
-WIP: Some basic smart contracts
+Neufund smart contracts
 
 
 # Build and test
@@ -17,12 +17,15 @@ npm run start
 ```
 Then browse to http://localhost:8080/
 
-*Using solc*
+*Using solc*: Truffle currently does not handler syntax errors
+ nicely. To check the contracts for errors, you can run:
 ```
 solc ./contracts/*.sol ./contracts/*/*.sol
 ```
 
 # Repositories of contracts
+
+These are collections of contracts for reference:
 
 ## Package managers
 

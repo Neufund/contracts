@@ -6,6 +6,7 @@ import "../lib/IERC20Basic.sol";
 contract Owned is RentrancyGuard {
 
   address public owner;
+  address private owner_nominee;
 
   function Owned() {
     owner = msg.sender;
@@ -17,17 +18,29 @@ contract Owned is RentrancyGuard {
     }
   }
 
+  modifier owner_nominee_only() {
+    if (msg.sender == owner_nominee) {
+      _;
+    }
+  }
+
   // TODO: Solidity 0.4.10 will have this as a build-in
   function assert(bool cond) {
     if(!cond) throw;
   }
 
   function transfer_ownership(address new_owner) external owner_only {
-    address old_owner = owner;
-    owner = new_owner;
-    Transfered(old_owner, new_owner);
+    owner_nominee = new_owner;
+    OwnershipNominated(owner, owner_nominee);
   }
-  event Transfered(address old_owner, address new_owner);
+
+  // Two step ownership transfer prevents accidentally sending to
+  // address that can not call contracts.
+  function accept_ownership() external owner_nominee_only {
+    OwnershipTransfered(owner, owner_nominee);
+    owner = owner_nominee;
+    delete owner_nominee;
+  }
 
   function terminate(IERC20Basic[] tokens) external owner_only non_rentrant {
     // Transfer tokens to owner (TODO: error handling)
@@ -39,4 +52,7 @@ contract Owned is RentrancyGuard {
     // Transfer Eth to owner and terminate contract
     selfdestruct(owner);
   }
+
+  event OwnershipNominated(address old_owner, address new_owner);
+  event OwnershipTransfered(address old_owner, address new_owner);
 }

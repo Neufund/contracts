@@ -2,7 +2,7 @@
 const OwnedHelper = artifacts.require('./helpers/OwnedHelper.sol')
 
 contract('Owned', function (accounts) {
-  it('should send balance to owner after death', async function () {
+  it('should send balance to owner after death', async () => {
     let owned = await OwnedHelper.new({
       from: accounts[0],
       value: web3.toWei('10', 'ether')
@@ -14,13 +14,13 @@ contract('Owned', function (accounts) {
 
     assert.isTrue(newBalance > initBalance)
   })
-  it('should send transfer ownership', async function () {
+  it('should send transfer ownership', async () => {
     // TODO
   })
-  it('should only allow owner to transfer ownership', async function () {
+  it('should only allow owner to transfer ownership', async () => {
     // TODO
   })
-  it('should only allow owner to terminate', async function () {
+  it('should only allow owner to terminate', async () => {
     // TODO
   })
 })

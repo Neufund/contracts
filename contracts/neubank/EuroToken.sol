@@ -36,8 +36,12 @@ contract EuroToken is Owned, BaseToken("NEUR", "Neu Euro", 59) {
 
   // Euro tokens are minted when classical EUR is received
   function deposit(address client, uint256 amount) external deposit_manager_only {
-    mint(client, amount);
-    Transfer(0, client, amount);
+    if(clients.is_client(client)) {
+      mint(client, amount);
+      Transfer(0, client, amount);
+    } else {
+      DepositRejected(client, amount);
+    }
   }
   // Issues a Transfer event with zero sender
 
@@ -45,9 +49,13 @@ contract EuroToken is Owned, BaseToken("NEUR", "Neu Euro", 59) {
   function withdraw(uint256 amount) external client_only {
     burn(msg.sender, amount);
     Transfer(msg.sender, 0, amount);
+    Withdraw(msg.sender, amount);
   }
   // TODO: Charge fees here in the interest of transparency? Problem: transfer fees might differ for each client.
   // Issues a Transfer event with zero receiver
+
+  event DepositRejected(address receiver, uint256 amount);
+  event Withdraw(address client, uint256 amount);
 
   // TODO: Some lost their keys, sad, and now demands their euros to be transferred. What?
 }
