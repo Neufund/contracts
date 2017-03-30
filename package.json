@@ -8,6 +8,7 @@
   "scripts": {
     "testrpc": "testrpc",
     "compile": "truffle compile",
+    "migrate": "truffle migrate",
     "test": "truffle test",
     "deploy": "truffle migrate --reset",
     "lint": "solium --dir contracts; eslint ./",
