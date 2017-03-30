@@ -57,28 +57,34 @@ module.exports = async (deployer, network, accounts) => {
   // facuetManger is a relay contract relaying Faucet; do a typecast
   let faucetRelay = Faucet.at(faucetManager.address)
 
-  // Link contracts
-  await faucetManager.multiplex_target(faucet.address)
-  await faucetManager.multiplex_add(neukeyNotary.address)
-  await faucet.set_manager(faucetManager.address)
-  await neukeyNotary.set_faucet(faucetManager.address)
+  console.log('Linking contracts')
+  await Promise.all([
+    faucetManager.multiplex_target(faucet.address),
+    faucetManager.multiplex_add(neukeyNotary.address),
+    faucet.set_manager(faucetManager.address),
+    neukeyNotary.set_faucet(faucetManager.address)
+  ])
 
-  // Link roles
-  await faucetManager.multiplex_add(faucetAdmin)
-  await kyc.set_validator(kycValidator)
-  await neukeyNotary.set_notary(notary)
-  await ethEurTrader.set_trader(trader)
-  await euroToken.set_deposit_manager(depositManager)
+  console.log('Linking roles')
+  await Promise.all([
+    faucetManager.multiplex_add(faucetAdmin),
+    kyc.set_validator(kycValidator),
+    neukeyNotary.set_notary(notary),
+    ethEurTrader.set_trader(trader),
+    euroToken.set_deposit_manager(depositManager)
+  ])
 
-  // Notary is on the faucet
+  console.log('Registring notary on the faucet')
   await faucetRelay.register(notary)
 
-  // Register
-  await registery.register('Faucet', faucet.address)
-  await registery.register('KYCRegistery', KYCRegistery.address)
-  await registery.register('NeukeyNotary', NeukeyNotary.address)
-  await registery.register('EuroToken', EuroToken.address)
-  await registery.register('EthEurTrader', EthEurTrader.address)
-  await registery.register('Neumark', Neumark.address)
-  await registery.register('NeufundICO', ico.address)
+  console.log('registring contracts in the Registry')
+  await Promise.all([
+    registery.register('Faucet', faucet.address),
+    registery.register('KYCRegistery', KYCRegistery.address),
+    registery.register('NeukeyNotary', NeukeyNotary.address),
+    registery.register('EuroToken', EuroToken.address),
+    registery.register('EthEurTrader', EthEurTrader.address),
+    registery.register('Neumark', Neumark.address),
+    registery.register('NeufundICO', ico.address)
+  ])
 }
