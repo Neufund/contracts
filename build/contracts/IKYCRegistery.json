@@ -1,0 +1,61 @@
+{
+  "contract_name": "IKYCRegistery",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "client",
+          "type": "address"
+        }
+      ],
+      "name": "state_of",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "client",
+          "type": "address"
+        }
+      ],
+      "name": "is_kyced",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "client",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "new_state",
+          "type": "uint8"
+        }
+      ],
+      "name": "StateChanged",
+      "type": "event"
+    }
+  ],
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1490872659288
+}

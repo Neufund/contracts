@@ -1,0 +1,201 @@
+{
+  "contract_name": "FaucetManager",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "cond",
+          "type": "bool"
+        }
+      ],
+      "name": "assert",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "manager",
+          "type": "address"
+        }
+      ],
+      "name": "multiplex_add",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "tokens",
+          "type": "address[]"
+        }
+      ],
+      "name": "terminate",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "target_",
+          "type": "address"
+        }
+      ],
+      "name": "multiplex_target",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "manager",
+          "type": "address"
+        }
+      ],
+      "name": "multiplex_remove",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "accept_ownership",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "new_owner",
+          "type": "address"
+        }
+      ],
+      "name": "transfer_ownership",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "faucet",
+          "type": "address"
+        },
+        {
+          "name": "managers",
+          "type": "address[]"
+        }
+      ],
+      "payable": false,
+      "type": "constructor"
+    },
+    {
+      "payable": true,
+      "type": "fallback"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "old_owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "new_owner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipNominated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "old_owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "new_owner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransfered",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x60606040526000805460ff19169055346100005760405161068838038061068883398101604052805160208201519091015b81815b60005b6000805461010060a860020a03191661010033600160a060020a0316021790555b5060028054600160a060020a03198116600160a060020a0390911617905560005b81518110156100ce576001600360008484815181101561000057602090810291909101810151600160a060020a03168252810191909152604001600020805460ff19169115159190911790555b600101610079565b5b5050505b50505b6105a3806100e56000396000f300606060405236156100725763ffffffff60e060020a6000350416630674763c81146100e75780634ceab858146100fb5780635b5bad73146101165780636925ad77146101305780637d5dec2a1461014b5780638da5cb5b14610166578063a67c2dcb1461018f578063f0350c041461019e575b6100e55b600160a060020a03331660009081526003602052604090205460ff16156100e057600254604051600160a060020a0390911690349060009036908083838082843782019150509250505060006040518083038185876185025a03f19250505015156100e057610000565b5b5b5b565b005b34610000576100e560043515156101b9565b005b34610000576100e5600160a060020a03600435166101c9565b005b34610000576100e5600480356024810191013561020e565b005b34610000576100e5600160a060020a03600435166103b0565b005b34610000576100e5600160a060020a03600435166103ed565b005b346100005761017361042f565b60408051600160a060020a039092168252519081900360200190f35b34610000576100e5610443565b005b34610000576100e5600160a060020a03600435166104ed565b005b8015156101c557610000565b5b50565b60005433600160a060020a039081166101009092041614156101c557600160a060020a0381166000908152600360205260409020805460ff191660011790555b5b5b50565b60008054819033600160a060020a039081166101009092041614156103a75760005460ff1615156103a7576000805460ff1916600117815591505b8282101561038957838383818110156100005790506020020135600160a060020a0316600160a060020a03166370a08231306000604051602001526040518263ffffffff1660e060020a0281526004018082600160a060020a0316600160a060020a03168152602001915050602060405180830381600087803b156100005760325a03f1156100005750506040515191508490508383818110156100005790506020020135600160a060020a0316600160a060020a031663a9059cbb600060019054906101000a9004600160a060020a0316836000604051602001526040518363ffffffff1660e060020a0281526004018083600160a060020a0316600160a060020a0316815260200182815260200192505050602060405180830381600087803b156100005760325a03f115610000575050505b600190910190610249565b6000546101009004600160a060020a0316ff5b6000805460ff191690555b5b5b5b50505050565b60005433600160a060020a039081166101009092041614156101c55760028054600160a060020a031916600160a060020a0383161790555b5b5b50565b60005433600160a060020a039081166101009092041614156101c557600160a060020a0381166000908152600360205260409020805460ff191690555b5b5b50565b6000546101009004600160a060020a031681565b60015433600160a060020a03908116911614156100e05760005460015460408051610100909304600160a060020a039081168452909116602083015280517f0d18b5fd22306e373229b9439188228edca81207d1667f604daf6cef8aa3ee679281900390910190a1600180546000805474ffffffffffffffffffffffffffffffffffffffff001916610100600160a060020a03841602179055600160a060020a03191690555b5b5b565b60005433600160a060020a039081166101009092041614156101c55760018054600160a060020a031916600160a060020a038381169190911791829055600054604080516101009092048316825292909116602082015281517f7cbe00258cd5670c808f2116fb86564f7f5717eef219817bc486add91c9ab7ca929181900390910190a15b5b5b505600a165627a7a72305820ccd83040e163480db97050881ece9646be75f319f1f9418f30949bb67b1e56040029",
+  "networks": {
+    "42": {
+      "links": {},
+      "events": {
+        "0x7cbe00258cd5670c808f2116fb86564f7f5717eef219817bc486add91c9ab7ca": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "old_owner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "new_owner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipNominated",
+          "type": "event"
+        },
+        "0x0d18b5fd22306e373229b9439188228edca81207d1667f604daf6cef8aa3ee67": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "old_owner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "new_owner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransfered",
+          "type": "event"
+        }
+      },
+      "updated_at": 1490881746228
+    }
+  },
+  "schema_version": "0.0.5",
+  "updated_at": 1490881746228
+}

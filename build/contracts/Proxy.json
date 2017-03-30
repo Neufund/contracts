@@ -1,0 +1,8 @@
+{
+  "contract_name": "Proxy",
+  "abi": [],
+  "unlinked_binary": "0x6060604052346000575b60358060166000396000f30060606040525b60005600a165627a7a72305820a7216643a0606fcec7c65f699fbd78720309addacd45cc7cdf64f5b2c4fccb950029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1490872659290
+}

@@ -1,0 +1,17 @@
+{
+  "contract_name": "EventListener",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "is_valid_event",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    }
+  ],
+  "unlinked_binary": "0x6060604052346000575b605d8060166000396000f300606060405263ffffffff60e060020a6000350416637422a12781146022575b6000565b34600057602c602e565b005b5b5600a165627a7a723058203794846b472444583fda4c5dbc5ec3bda8cd420dd1791b48fe4fef2c841fbec70029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1490872659287
+}

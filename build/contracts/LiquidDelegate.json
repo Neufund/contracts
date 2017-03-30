@@ -1,0 +1,8 @@
+{
+  "contract_name": "LiquidDelegate",
+  "abi": [],
+  "unlinked_binary": "0x6060604052346000575b60358060166000396000f30060606040525b60005600a165627a7a723058202d292fabda793cacb0989f79aaf6ffa706013d0cbe4cd3eba96fdfaccab70c820029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1490872659288
+}

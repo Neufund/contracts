@@ -1,0 +1,15 @@
+{
+  "contract_name": "WatchedWalletFactory",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "contractCreated",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x6060604052346000575b60358060166000396000f30060606040525b60005600a165627a7a723058202ea49f08baa4ef32e406cad87f3178b0f39c6d677eea03da62353d288c4b79b20029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1490872659290
+}

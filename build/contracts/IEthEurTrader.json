@@ -1,0 +1,12 @@
+{
+  "contract_name": "IEthEurTrader",
+  "abi": [
+    {
+      "payable": true,
+      "type": "fallback"
+    }
+  ],
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1490872659288
+}

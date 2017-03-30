@@ -1,0 +1,16 @@
+{
+  "contract_name": "Proposition",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "delegateVote",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    }
+  ],
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1490872659289
+}

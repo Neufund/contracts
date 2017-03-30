@@ -1,0 +1,8 @@
+{
+  "contract_name": "FixedPointMath",
+  "abi": [],
+  "unlinked_binary": "0x6060604052346000575b60358060166000396000f30060606040525b60005600a165627a7a72305820af6ec824ed9c0c6a86d929e3b44cd6529548b8203b31869f09aad608e8738ed50029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1490872659287
+}
