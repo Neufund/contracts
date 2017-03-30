@@ -37,6 +37,10 @@ contract Faucet is IFaucet, Owned, SafeMath {
     Pool_funded(this.balance, msg.value);
   }
 
+  function minimum_balance() constant public returns (uint256) {
+    return minimum_balance;
+  }
+
   function set_manager(address new_manager) external owner_only {
     manager = new_manager;
   }
