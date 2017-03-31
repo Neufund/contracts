@@ -66,6 +66,10 @@ contract KYCRegistery is IKYCRegistery, Owned {
     return submissions[client].state;
   }
 
+  function hash_of(address client) public constant returns (bytes32) {
+    return submissions[client].hash;
+  }
+
   function is_kyced(address client) public constant returns (bool) {
     return state_of(client) == State.Accepted;
   }
