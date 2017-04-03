@@ -59,9 +59,10 @@
     "42": {
       "links": {},
       "events": {},
-      "updated_at": 1491213044386
+      "updated_at": 1491215213891,
+      "address": "0xeb3a416a90db6c458a94e6b54b9bba263a31b338"
     }
   },
   "schema_version": "0.0.5",
-  "updated_at": 1491213044386
+  "updated_at": 1491215213891
 }
