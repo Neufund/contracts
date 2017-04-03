@@ -11,13 +11,6 @@ const LimitedPartnerAgreement = artifacts.require('LimitedPartnerAgreement')
 const NeufundICO = artifacts.require('NeufundICO')
 
 module.exports = async (deployer, network, accounts) => {
-  // Utility function that wraps deployer.deploy,
-  // but returns the singleton instance
-  let deploy = async (Contract, ...args) => {
-    await deployer.deploy(Contract, ...args)
-    return await Contract.deployed()
-  }
-
   // Roles
   let owner = accounts[0]
   let faucetAdmin = owner
@@ -37,22 +30,31 @@ module.exports = async (deployer, network, accounts) => {
   console.log('')
 
   // Deploy contracts
-  let registery = await deploy(Registery)
-  let faucet = await deploy(Faucet)
-  let faucetManager = await deploy(FaucetManager)
-  let kyc = await deploy(KYCRegistery)
-  let neukeyNotary = await deploy(NeukeyNotary)
-  let euroToken = await deploy(EuroToken)
-  let ethEurTrader = await deploy(EthEurTrader)
-  let lpa = await deploy(LimitedPartnerAgreement)
-  let neumark = await deploy(Neumark)
-  let ico = await deploy(
-    NeufundICO,
-    kyc.address,
-    lpa.address,
-    euroToken.address,
-    neumark.address
-  )
+  let contracts = [
+    Registery,
+    Faucet,
+    FaucetManager,
+    KYCRegistery,
+    NeukeyNotary,
+    EuroToken,
+    EthEurTrader,
+    LimitedPartnerAgreement,
+    Neumark,
+    [NeufundICO,
+      KYCRegistery.address,
+      LimitedPartnerAgreement.address,
+      EuroToken.address,
+      Neumark.address]]
+  await deployer.deploy(contracts)
+
+  let registery = await Registery.deployed()
+  let faucet = await Faucet.deployed()
+  let faucetManager = await FaucetManager.deployed()
+  let kyc = await KYCRegistery.deployed()
+  let neukeyNotary = await NeukeyNotary.deployed()
+  let euroToken = await EuroToken.deployed()
+  let ethEurTrader = await EthEurTrader.deployed()
+  let ico = await NeufundICO.deployed()
 
   // facuetManger is a relay contract relaying Faucet; do a typecast
   let faucetRelay = Faucet.at(faucetManager.address)
