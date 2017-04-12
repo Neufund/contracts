@@ -9,6 +9,5 @@
     "transform-runtime",
     "transform-function-bind",
     "transform-class-properties",
-    "react-hot-loader/babel"
   ]
 }

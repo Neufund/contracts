@@ -9,13 +9,10 @@ Neufund smart contracts
 git clone https://github.com/Neufund/Contracts.git
 cd Contracts
 npm install
-npm run build
 npm run testrpc &
 npm run test
 npm run deploy
-npm run start
 ```
-Then browse to http://localhost:8080/
 
 *Using solc*: Truffle currently does not handler syntax errors
  nicely. To check the contracts for errors, you can run:
