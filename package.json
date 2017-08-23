@@ -28,7 +28,7 @@
   "homepage": "https://github.com/Neufund/Contracts#readme",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
-    "ethereumjs-testrpc": "^3.0.3",
+    "ethereumjs-testrpc": "^4.1.1",
     "truffle": "^3.2.1",
     "zeppelin-solidity": "^1.0.4",
     "babel-register": "^6.24.0"
